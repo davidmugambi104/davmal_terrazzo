@@ -1,0 +1,19 @@
+.network-statistics {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-label {
+  font-weight: bold;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.2em;
+  color: #333;
+}

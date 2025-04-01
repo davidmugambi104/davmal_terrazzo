@@ -1,0 +1,104 @@
+/* AboutPage.css */
+@keyframes quantum-glow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5)); }
+  50% { filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.8)); }
+}
+
+@keyframes particle-drift {
+  from { transform: translateY(-20vh) rotate(0deg); }
+  to { transform: translateY(120vh) rotate(360deg); }
+}
+
+.quantum-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.holographic-card {
+  background: linear-gradient(
+    145deg,
+    rgba(99, 102, 241, 0.1),
+    rgba(168, 85, 247, 0.05),
+    rgba(99, 102, 241, 0.1)
+  );
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.neon-border {
+  position: relative;
+}
+
+.neon-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(45deg, #6366f1 0%, #a855f7 50%, #6366f1 100%);
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: quantum-glow 3s ease-in-out infinite;
+}
+
+.quantum-particle {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: rgba(99, 102, 241, 0.8);
+  border-radius: 50%;
+  animation: particle-drift linear infinite;
+  pointer-events: none;
+}
+
+.matrix-pattern {
+  background-image: 
+    radial-gradient(circle at center, 
+      rgba(99, 102, 241, 0.05) 0%,
+      rgba(168, 85, 247, 0.05) 30%,
+      transparent 70%);
+}
+
+.interactive-gradient {
+  background-position: 0% 0%;
+  background-size: 200% 200%;
+  transition: background-position 0.5s ease;
+}
+
+.interactive-gradient:hover {
+  background-position: 100% 100%;
+}
+
+/* Add these classNames to your components */
+/* Add your styles here */
+
+.quantum-particle {
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: float 10s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

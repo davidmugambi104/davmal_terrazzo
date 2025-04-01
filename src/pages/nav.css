@@ -1,0 +1,151 @@
+/* Navbar.css */
+.navbar-header {
+  background-color: #d8b4fe;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  position: sticky;
+  top: 0;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.375rem;
+  text-transform: uppercase;
+  padding-right: 0.5rem;
+  margin-right: 0.5rem;
+  border-right: 2px solid #8b5cf6;
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #000;
+}
+
+@media (min-width: 1024px) {
+  .navbar-brand {
+      font-size: 1.875rem;
+      padding-right: 1.25rem;
+      margin-right: 1.25rem;
+  }
+}
+
+.mobile-menu-button {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .mobile-menu-button {
+      display: none;
+  }
+}
+
+.menu-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.nav-menu {
+  display: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .nav-menu {
+      display: flex;
+  }
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  margin-right: 2.5rem;
+}
+
+.nav-link.active {
+  color: #6b21a8;
+}
+
+.nav-item {
+  padding: 0.25rem;
+  border: 2px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.nav-item:hover {
+  border-color: #8b5cf6;
+  background-color: white;
+}
+
+.hire-button {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  color: white;
+  background-color: #f87171;
+  font-weight: 700;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+}
+
+@media (min-width: 1024px) {
+  .hire-button {
+      padding: 0.5rem 1.25rem;
+      border-radius: 0.75rem;
+  }
+}
+
+.hire-text {
+  display: none;
+  margin-left: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .hire-text {
+      display: block;
+  }
+}
+
+.mobile-menu {
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  background-color: white;
+  border: 2px solid #8b5cf6;
+  border-radius: 1rem;
+}
+
+.mobile-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-weight: 700;
+}
+
+.mobile-nav-link {
+  color: #000;
+  text-decoration: none;
+}
+
+.mobile-nav-link.active {
+  color: #6b21a8;
+}
+
+.mobile-nav-item {
+  margin-bottom: 0.5rem;
+}
+
+.mobile-nav-item:hover {
+  color: #8b5cf6;
+}

@@ -1,0 +1,17 @@
+.sustainability-milestones {
+  border: 1px solid #d4edda;
+  background-color: #f8fdf8;
+}
+
+.sustainability-milestones h4 {
+  color: #155724;
+}
+
+.sustainability-milestones ul li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.sustainability-milestones ul li:last-child {
+  border-bottom: none;
+}
