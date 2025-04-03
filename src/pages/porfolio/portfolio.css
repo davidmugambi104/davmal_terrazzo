@@ -1,0 +1,531 @@
+/* Base Styles */
+:root {
+    --primary: #2a4b5b; /* Professional Navy */
+    --secondary: #c89f65; /* Metallic Gold */
+    --accent: #607d8b; /* Concrete Gray */
+    --text: #333333;
+    --light: #f8f9fa;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --radius-lg: 1rem;
+    --radius-sm: 0.5rem;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    min-width: 100%;
+    line-height: 1.6;
+    background: var(--light);
+    color: var(--text);
+    overflow-y: scroll;
+    z-index: -1;
+    overflow-x: hidden;
+  }
+  .portfolio-container {
+    max-width: 1200px;
+    background-color:#e0e0e0 ;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  /* Navigation */
+  .portfolio-nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000; /* Ensure this is high enough */
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+  }
+  
+  .nav-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-links button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-links button:hover::after,
+  .nav-links button.active::after {
+    width: 100%;
+  }
+  
+  /* Hero Section */
+  .portfolio-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 90vh;
+    padding: 4rem 5%;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 70px; /* Add this */
+  }
+  .hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    color: var(--primary);
+    position: relative;
+    padding-left: 2rem;
+  }
+  
+  .hero-content h1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background: var(--secondary);
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  
+  .stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-image {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transform: rotate(-2deg);
+    box-shadow: 20px 20px 0 var(--secondary);
+  }
+  
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: rotate(2deg) scale(1.1);
+  }
+  
+  /* Projects Grid */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 5%;
+  }
+  
+  .project-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+  
+  .project-image {
+    position: relative;
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+  
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .project-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(42, 75, 91, 0.9);
+    color: white;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  .project-card:hover .project-hover {
+    opacity: 1;
+  }
+  
+  .project-result {
+    font-weight: 700;
+    color: var(--secondary);
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(200, 159, 101, 0.2);
+    border-radius: var(--radius-sm);
+    display: inline-block;
+  }
+  
+  /* Case Studies */
+  .case-studies {
+    display: grid;
+    gap: 2rem;
+    padding: 0 5%;
+  }
+  
+  .case-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .case-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+  }
+  
+  /* Skills Section */
+  .skills-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    padding: 0 5%;
+  }
+  
+  .skill-bar {
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 5px;
+    transition: width 1s ease-in-out;
+  }
+  
+  .tools-list ul {
+    list-style: none;
+    padding-left: 1.5rem;
+  }
+  
+  .tools-list li {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .tools-list li::before {
+    content: '▹';
+    position: absolute;
+    left: -1.5rem;
+    color: var(--secondary);
+  }
+  
+  /* Contact Form */
+  .contact-form {
+    display: grid;
+    gap: 1rem;
+    max-width: 500px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 1rem;
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-sm);
+    background: transparent;
+  }
+  
+  .contact-form button {
+    background: var(--primary);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .contact-form button:hover {
+    background: var(--secondary);
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .portfolio-section {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .portfolio-hero {
+      grid-template-columns: 1fr;
+      padding-top: 6rem;
+    }
+  
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+  
+    .skills-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  
+    .case-card {
+      grid-template-columns: 1fr;
+    }
+  
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  /* Mobile Toggle Styles */
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    z-index: 1001;
+  }
+  
+  .hamburger {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger::before {
+    transform: translateY(-8px);
+  }
+  
+  .hamburger::after {
+    transform: translateY(8px);
+  }
+  
+  .hamburger.open {
+    background: transparent;
+  }
+  
+  .hamburger.open::before {
+    transform: rotate(45deg);
+  }
+  
+  .hamburger.open::after {
+    transform: rotate(-45deg);
+  }
+  
+  /* Mobile Menu */
+  @media (max-width: 768px) {
+    .mobile-toggle {
+      display: block;
+    }
+  
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      flex-direction: column;
+      padding: 1rem;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      box-shadow: var(--shadow);
+    }
+  
+    .nav-links.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    .nav-links button {
+      width: 100%;
+      padding: 1rem;
+      text-align: left;
+    }
+  }
+  
+  /* Add this to existing media query */
+  @media (max-width: 768px) {
+    .portfolio-hero {
+      margin-top: 70px;
+    }
+  }
+  /* Mobile Menu Fixes */
+@media (max-width: 768px) {
+    .mobile-toggle {
+      display: block;
+    }
+  
+    .nav-links {
+      position: fixed;
+      top: 70px; /* Height of your navbar */
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 70px);
+      background: rgba(255, 255, 255, 0.98);
+      flex-direction: column;
+      padding: 2rem;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+      opacity: 1;
+      visibility: visible;
+      box-shadow: var(--shadow);
+    }
+  
+    .nav-links.active {
+      transform: translateX(0);
+    }
+  
+    .nav-links button {
+      width: 100%;
+      padding: 1.5rem;
+      text-align: left;
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* Fix z-index issues */
+  .portfolio-container {
+    max-width: 1200px;
+    background-color: #e0e0e0;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    /* Remove z-index: -1 */
+  }
+  
+  /* Hamburger Animation Fix */
+  .hamburger {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger::before {
+    transform: translateY(-8px);
+  }
+  
+  .hamburger::after {
+    transform: translateY(8px);
+  }
+  
+  .hamburger.open {
+    background: transparent;
+  }
+  
+  .hamburger.open::before {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .hamburger.open::after {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }

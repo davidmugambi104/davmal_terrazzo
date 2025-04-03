@@ -1,21 +1,19 @@
-import { useEffect, useState, useContext, useMemo, useCallback } from 'react';
+import { useEffect, useState, useContext, useMemo } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import React from 'react';
 import { debounce } from 'lodash';
 import { useInView } from 'react-intersection-observer';
 import { ThemeContext } from '../context/theme-context';
-import { fetchSocialProof } from '../lib/facebook-api/social-proof';
-import { getPersonalizedRecommendations } from '../lib/ai/recommendation-engine';
-import { generateEnvironment } from '../lib/threejs/environment-map';
-import { fetchTrendingPatterns } from '../services/patternService';
 import PatternGenerator from '../pages/products/custom-design-lab/PatternGenerator';
 import RealTimeRender from '../pages/products/custom-design-lab/RealTimeRender';
-import LivePageFeed from '../components/layout/SocialMediaSynergy/LivePageFeed';
+import YouTubeAntiquePlayer from './VideoPopup.jsx';
 import ReviewAggregator from '../components/layout/SocialMediaSynergy/ReviewAggregator';
-import CheckInWidget from '../components/layout/SocialMediaSynergy/CheckInWidget';
-import './home.css';
+import TypeEffect from '../components/layout/SocialMediaSynergy/TypeEffect.jsx';
 import Navbar from './Navbar';
 import MovieCarousel from './MovieCarousel';
+import ResponsiveAnimatedHeading from './AnimatedHead.jsx';
+import AntiquePhotoFrame from './frame.jsx';
+import Footer  from './footer.jsx';
+import './home.css';
 
 const HomePageErrorFallback = ({ error, resetErrorBoundary }) => (
   <div role="alert" className="p-8 bg-red-100 text-red-700 rounded-xl">
@@ -32,13 +30,11 @@ const HomePageErrorFallback = ({ error, resetErrorBoundary }) => (
 
 const HomePage = () => {
   const { theme } = useContext(ThemeContext);
-  const [recommendations, setRecommendations] = useState([]);
-  const [socialProof, setSocialProof] = useState(null);
   const [threeEnv, setThreeEnv] = useState(null);
-  const [patterns, setPatterns] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [sectionRef, isSectionVisible] = useInView({ threshold: 0.1, rootMargin: '200px' });
+  const [loading, setLoading] = useState(false); // Preserved for future use
 
+  // Configuration
   const envConfig = useMemo(() => ({
     textureResolution: '4k',
     lightingPreset: theme === 'dark' ? 'moonlit' : 'sunny',
@@ -46,211 +42,155 @@ const HomePage = () => {
     antialias: true
   }), [theme]);
 
-  const handleResize = useCallback(debounce(() => {
-    threeEnv?.updateCameraAspect(window.innerWidth / window.innerHeight);
-  }, 200), [threeEnv]);
-
-  const fetchData = useCallback(async () => {
-    try {
-      const [recs, proof, patterns] = await Promise.all([
-        getPersonalizedRecommendations(),
-        fetchSocialProof(),
-        fetchTrendingPatterns(),
-        new Promise(resolve => setTimeout(resolve, 1000))
-      ]);
-      
-      setRecommendations(recs);
-      setSocialProof(proof);
-      setPatterns(patterns);
-      setLoading(false);
-    } catch (err) {
-      setError(err);
-      setLoading(false);
-    }
-  }, []);
-
+  // Three.js setup and resize handling
   useEffect(() => {
-    const env = generateEnvironment(envConfig);
-    setThreeEnv(env);
-
-    const resizeHandler = debounce(() => {
-      env?.updateCameraAspect(window.innerWidth / window.innerHeight);
+    const handleResize = debounce(() => {
+      threeEnv?.updateCameraAspect(window.innerWidth / window.innerHeight);
     }, 200);
 
-    window.addEventListener('resize', resizeHandler);
-    fetchData();
+    const initializeEnvironment = () => {
+      window.addEventListener('resize', handleResize);
+    };
+
+    initializeEnvironment();
 
     return () => {
-      env.dispose();
-      window.removeEventListener('resize', resizeHandler);
-      resizeHandler.cancel();
+      threeEnv?.dispose();
+      window.removeEventListener('resize', handleResize);
+      handleResize.cancel();
     };
-  }, [envConfig, fetchData]);
+  }, [envConfig, threeEnv]);
 
-  const [sectionRef, isSectionVisible] = useInView({
-    threshold: 0.1,
-    rootMargin: '200px'
-  });
+  // Loading skeleton (preserved)
+  const renderLoadingSkeleton = () => (
+    <div className="max-w-7xl mx-auto p-8 space-y-8">
+      {[...Array(3)].map((_, i) => (
+        <div key={i} className="h-64 bg-gray-200/50 dark:bg-gray-800/50 animate-pulse rounded-xl" />
+      ))}
+    </div>
+  );
 
-  if (error) return <HomePageErrorFallback error={error} resetErrorBoundary={fetchData} />;
+  // Hero section
+  const renderHeroSection = () => (
+    <section className="hero-section relative h-[80vh] overflow-hidden">
+      <div className="hero-overlay" />
+      <canvas 
+        id="threejs-canvas" 
+        className="threejs-viewer absolute inset-0 w-full h-full"
+        ref={canvas => threeEnv?.initialize(canvas)}
+      />
+      <div className="hero-content absolute bottom-0 left-0 right-0 p-8">
+        <ResponsiveAnimatedHeading />
+        <div className="max-w-2xl mx-auto mt-8">
+          <TypeEffect />
+        </div>
+      </div>
+    </section>
+  );
+
+  // Social proof section
+  const renderSocialProof = () => (
+    <section ref={sectionRef} className="py-16 px-4">
+      <div className="social-proof-grid max-w-7xl mx-auto gap-8">
+        {isSectionVisible && (
+          <>
+            <div className="business-card p-6">
+              <YouTubeAntiquePlayer/>
+            </div>
+            <div className="business-card md:col-span-2 p-6">
+              <ReviewAggregator theme={theme} />
+            </div>
+          </>
+        )}
+      </div>
+    </section>
+  );
+
+  // Recommendations section (restored with placeholder data)
+  const renderRecommendations = () => (
+    <section className="py-16 px-4">
+      <h2 className="h2 text-center mb-12">Design Inspirations</h2>
+      <div className="social-proof-grid max-w-7xl mx-auto gap-8">
+        {[1].map(id => (
+          <div className="business-card group overflow-hidden p-0" key={id}>
+            <AntiquePhotoFrame imageUrl={`/placeholder-design-${id}.jpg`} />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+
+  // Interactive design section
+  const renderDesignSection = () => (
+    <section className="py-16 px-4">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="h2 mb-8">Live Design Studio</h2>
+        <div className="design-workspace grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
+          <PatternGenerator 
+            theme={theme}
+            className="min-h-[500px]"
+          />
+          <RealTimeRender 
+            resolution="1080p"
+            qualityPreset="high"
+            className="threejs-viewer h-[500px] rounded-xl"
+          />
+          <div className="mt-8 lg:col-span-2">
+            <MovieCarousel />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+
+  // Community section (restored with placeholder content)
+  const renderCommunitySection = () => (
+    <section className="py-16 px-4">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="h2 mb-8">Community Creations</h2>
+        <div className="social-proof-grid gap-6">
+          <div className="business-card md:col-span-2 p-6">
+            <YouTubeAntiquePlayer/>
+          </div>
+          <div className="business-card p-6">
+            <h3 className="h3 mb-4">Featured Projects</h3>
+            <TrendingProjectsCarousel />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 
   return (
     <ErrorBoundary FallbackComponent={HomePageErrorFallback}>
-      <div 
-        data-theme={theme}
-        className="business-homepage min-h-screen transition-colors duration-300"
-      >
-      <div className="min-h-screen">
+      <div data-theme={theme} className="business-homepage min-h-screen transition-colors duration-300">
         <Navbar />
-        {/* Your content */}
-      </div>
-        {/* Hero Section */}
-        <section className="hero-section relative h-[80vh] overflow-hidden">
-          <div className="hero-overlay" />
-          <canvas 
-              id="threejs-canvas" 
-              className="threejs-viewer absolute inset-0 w-full h-full"
-              ref={(canvas) => {
-                if (!canvas) return; // Debug: ensure canvas is not null
-                if (threeEnv && !threeEnv.initialized) {
-                  threeEnv.initialize(canvas);
-                }
-              }}
-            />
-
-          <div className="hero-content absolute bottom-0 left-0 right-0 p-8">
-            <h1 className="h1 text-center animate-fade-in-up">
-              TERAZZO CENTRAL
-            </h1>
-            <div className="max-w-2xl mx-auto mt-8">
-              <CheckInWidget theme={theme} />
-            </div>
-          </div>
-        </section>
-
-        {/* Loading Skeleton */}
-        {loading && (
-          <div className="max-w-7xl mx-auto p-8 space-y-8">
-            {[...Array(3)].map((_, i) => (
-              <div key={i} className="h-64 bg-gray-200/50 dark:bg-gray-800/50 animate-pulse rounded-xl" />
-            ))}
-          </div>
+        {renderHeroSection()}
+        
+        {/* Loading state preserved for future use */}
+        {loading ? renderLoadingSkeleton() : (
+          <>
+            {renderSocialProof()}
+            {renderRecommendations()}
+            {renderDesignSection()}
+            {renderCommunitySection()}
+          </>
         )}
-
-        {/* Social Proof Section */}
-        {!loading && socialProof && (
-          <section ref={sectionRef} className="py-16 px-4">
-            <div className="social-proof-grid max-w-7xl mx-auto gap-8">
-              {isSectionVisible && (
-                <>
-                  <div className="business-card p-6">
-                    <LivePageFeed 
-                      posts={socialProof.livePosts} 
-                      theme={theme}
-                    />
-                  </div>
-                  <div className="business-card md:col-span-2 p-6">
-                    <ReviewAggregator 
-                      reviews={socialProof.recentReviews} 
-                      theme={theme}
-                    />
-                  </div>
-                </>
-              )}
-            </div>
-          </section>
-        )}
-
-        {/* AI Recommendations */}
-        {!loading && recommendations.length > 0 && (
-          <section className="py-16 px-4">
-            <h2 className="h2 text-center mb-12">Personalized For You</h2>
-            <div className="social-proof-grid max-w-7xl mx-auto gap-8">
-              {recommendations.map((rec) => (
-                <div className="business-card group overflow-hidden p-0" key={rec.id}>
-                  <MemoizedPatternCard rec={rec} theme={theme} />
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Interactive Design Section */}
-        {!loading && patterns.length > 0 && (
-          <section className="py-16 px-4">
-            <div className="max-w-7xl mx-auto">
-              <h2 className="h2 mb-8">Live Design Studio</h2>
-              <div className="design-workspace grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
-                <PatternGenerator 
-                  initialPattern={patterns[0]}
-                  theme={theme}
-                  className="min-h-[500px]"
-                />
-                <RealTimeRender 
-                  resolution="1080p"
-                  qualityPreset="high"
-                  className="threejs-viewer h-[500px] rounded-xl"
-                />
-                <div className="mt-8">
-                <MovieCarousel />
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Community Activities */}
-        {!loading && socialProof && (
-          <section className="py-16 px-4">
-            <div className="max-w-7xl mx-auto">
-              <h2 className="h2 mb-8">Community Activities</h2>
-              <div className="social-proof-grid gap-6">
-                <div className="business-card md:col-span-2 p-6">
-                  <LivePageFeed 
-                    posts={socialProof.livePosts.slice(0, 2)} 
-                    compact 
-                    theme={theme}
-                  />
-                </div>
-                <div className="business-card p-6">
-                  <h3 className="h3">Trending Projects</h3>
-                  <TrendingProjectsCarousel />
-                </div>
-                <div className="business-card checkin-widget p-6">
-                  <h3 className="h3">Recent Check-ins</h3>
-                  <CheckInWidget 
-                    theme={theme}
-                    compact
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
+        
+     <Footer /> 
       </div>
     </ErrorBoundary>
   );
 };
 
-const MemoizedPatternCard = React.memo(({ rec, theme }) => (
-  <div className="relative group h-full w-full">
-    <PatternGenerator
-      basePattern={rec.pattern}
-      constraints={rec.constraints}
-      interactive={false}
-      className="h-full w-full"
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
-      <h3 className="text-xl font-semibold text-white">{rec.title}</h3>
-    </div>
-  </div>
-));
-
+// Restored carousel component
 const TrendingProjectsCarousel = () => (
   <div className="trend-carousel">
-    {[...Array(3)].map((_, i) => (
-      <div key={i} className="trend-item">
-        <div className="h-20 bg-gray-100/50 dark:bg-gray-800/50 rounded-lg animate-pulse" />
+    {[1, 2, 3].map(id => (
+      <div key={id} className="trend-item">
+        <div className="h-32 bg-gray-100/50 dark:bg-gray-800/50 rounded-lg animate-pulse">
+          <span className="sr-only">Loading project...</span>
+        </div>
       </div>
     ))}
   </div>

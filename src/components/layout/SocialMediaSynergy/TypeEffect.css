@@ -1,0 +1,74 @@
+/*  */
+
+.typing-container {
+  position: relative;
+  max-width: 800px;
+  padding: 20px;
+}
+
+#typing-text {
+  color: #141313;
+  font-size: 2rem;
+  font-family: 'Times New Roman', Times, serif;
+  line-height: 1.5;
+  border-right: 2px solid #000;
+  white-space: pre-wrap;
+  overflow: hidden;
+  min-height: 60px;
+}
+
+.cursor {
+  color: #b3d4e9;
+}
+/* Small screen styles */
+
+@media only screen and (max-width: 768px) {
+  .typing-container {
+    max-width: 90%;
+    padding: 10px;
+  }
+
+  #typing-text {
+    font-size: 1.3rem;
+    line-height: 1.2;
+    min-height: 40px;
+  }
+
+  .cursor {
+    font-size: 1.2rem;
+  }
+}
+
+
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.contact-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  background-color: #24A0ED;
+  border: 2px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: white;
+  color: #000;
+}
+.contact-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.contact-button:active {
+  background-color: #fff;
+  border-color: #000;
+}

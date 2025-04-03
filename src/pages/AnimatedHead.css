@@ -1,0 +1,45 @@
+/* components/AnimatedHeading.css */
+.h1 {
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+    border-right: var(--cursor-width, 2px) solid;
+    animation: 
+      fade-in-up 0.5s ease-out,
+      typing var(--typing-duration, 3s) steps(var(--typing-steps, 19)) 0.5s forwards,
+      blink-caret 0.75s step-end infinite;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: currentColor; }
+  }
+  
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Base mobile styles */
+  @media (max-width: 768px) {
+    .h1 {
+      font-size: 1.5rem;
+    }
+  }

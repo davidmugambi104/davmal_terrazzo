@@ -24,6 +24,18 @@ import terrazzo18 from './images/terrazzo18.jpg';
 import terrazzo19 from './images/terrazzo19.jpg';
 import terrazzo20 from './images/terrazzo20.jpg';
 import terrazzo21 from './images/terrazzo21.jpg';
+import terrazzo22 from './images/terrazzo22.jpg';
+import terrazzo23 from './images/terrazzo23.jpg';
+import terrazzo24 from './images/terrazzo24.jpg';
+import terrazzo25 from './images/terrazzo25.jpg'
+import terrazzo26 from './images/terrazzo26.jpg';
+import terrazzo27 from './images/terrazzo27.jpg';
+import terrazzo28 from './images/terrazzo28.jpg';
+import terrazzo29 from './images/terrazzo29.jpg';
+import terrazzo30 from './images/terrazzo30.jpg';
+import terrazzo31 from './images/terrazzo31.jpg';
+import terrazzo32 from './images/terrazzo32.jpg';
+import terrazzo33 from './images/terrazzo33.jpg';
 
 export const MovieCarousel = () => {
   const [movies, setMovies] = useState([]);
@@ -205,9 +217,107 @@ export const MovieCarousel = () => {
           image: terrazzo21,
           thumbnail: terrazzo21,
           duration: 1
-        }
+        },
+        {
+        id: 22,
+        title: "Ancient Secrets",
+        description: "Uncovering lost civilizations",
+        image: terrazzo22,
+        thumbnail: terrazzo22,
+        duration: 1
+      },
+      {
+        id: 23,
+        title: "The Midnight Zone",
+        description: "A sci-fi thriller exploring parallel dimensions",
+        image: terrazzo23,
+        thumbnail: terrazzo23,
+        duration: 1
+      },
+      {
+        id: 24,
+        title: "Cyber Revolution",
+        description: "Futuristic warfare in a digital age",
+        image: terrazzo24,
+        thumbnail: terrazzo24,
+        duration: 1
+      },
+      {
+        id: 25,
+        title: "Ocean's Depth",
+        description: "Mysterious creatures of the deep sea",
+        image: terrazzo25,
+        thumbnail: terrazzo25,
+        duration: 1
+      },
+      {
+        id: 26,
+        title: "Space Pioneers",
+        description: "Colonizing Mars in 22nd century",
+        image: terrazzo26,
+        thumbnail: terrazzo26,
+        duration: 1
+      },
+      {
+        id: 27,
+        title: "Ancient Secrets",
+        description: "Uncovering lost civilizations",
+        image: terrazzo27,
+        thumbnail: terrazzo27,
+        duration: 1
+      },
+      {
+        id: 28,
+        title: "The Midnight Zone",
+        description: "A sci-fi thriller exploring parallel dimensions",
+        image: terrazzo28,
+        thumbnail: terrazzo28,
+        duration: 1
+      },
+      {
+        id: 29,
+        title: "Cyber Revolution",
+        description: "Futuristic warfare in a digital age",
+        image: terrazzo29,
+        thumbnail: terrazzo29,
+        duration: 1 
+      },
+      {
+        id: 30,
+        title: "Ocean's Depth",
+        description: "Mysterious creatures of the deep sea",
+        image: terrazzo30,
+        thumbnail: terrazzo30,
+        duration: 1
+      },
+      {
+        id: 31,
+        title: "Space Pioneers",
+        description: "Colonizing Mars in 22nd century",
+        image: terrazzo31,
+        thumbnail: terrazzo31,
+        duration: 1
+      },
+      {
+        id: 32,
+        title: "Ancient Secrets",
+        description: "Uncovering lost civilizations",
+        image: terrazzo32,
+        thumbnail: terrazzo32,
+        duration: 1
+      },
+      {
+        id: 33,
+        title: "Ancient Secrets",
+        description: "Uncovering lost civilizations",
+        image: terrazzo33,
+        thumbnail: terrazzo33,
+        duration: 1
+      }
+    
+    ];
       
-      ];
+      // Simulate a network request
       
 
       

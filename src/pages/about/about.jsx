@@ -1,0 +1,174 @@
+import { useState } from 'react';
+import './AboutPage.css'; // Create this CSS file for styling
+import Navbar from '../Navbar';
+import Footer from '../footer.jsx';
+
+import terrazzo1 from '../images/terrazzo1.jpg';
+import terrazzo2 from '../images/terrazzo2.jpg';
+import terrazzo3 from '../images/terrazzo3.jpg';
+export const AboutUs = () => {
+  const [loadedImages, setLoadedImages] = useState(0);
+
+  // Add your image paths here
+  const businessPhotos = [
+    terrazzo1,
+    terrazzo2,
+    terrazzo3
+  ];
+
+  return (
+    <div id="about-container"  className="professional-background">
+        <Navbar />
+      <section className="h1 hero-section">
+        <h1>Elevating Spaces with Timeless Terrazzo Craftsmanship</h1>
+      </section>
+
+      {/* Brand Story Section */}
+      <section className="content-section">
+        <h2>Our Terrazzo Legacy</h2>
+        <p>
+          {`Since [YEAR], Davmal Terrazzo Enterprises has transformed floors across Nairobi city and beyond,
+          into stunning terrazzo masterpieces. What began as a family passion for 
+          durable, beautiful surfaces has grown into a specialized installation 
+          service trusted by +254722316668 or +254 729 159585 satisfied customers.`}
+        </p>
+      </section>
+
+      {/* Photo Gallery */}
+      <section className="photo-gallery">
+        <h2>Our Work Speaks Volumes</h2>
+        <div className="gallery-grid">
+          {businessPhotos.map((photo, index) => (
+            <div 
+              key={index} 
+              className="gallery-item"
+              aria-label={`Terrazzo installation example ${index + 1}`}
+            >
+              {loadedImages > index ? null : <div className="image-placeholder" />}
+              <img 
+                src={photo}
+                alt={`Terrazzo installation by Davmal Terrazzo Enterprises`}
+                onLoad={() => setLoadedImages(prev => prev + 1)}
+                style={{ display: loadedImages > index ? 'block' : 'none' }}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Who We Serve */}
+      <section className="content-section highlighted">
+        <h2>Perfecting Spaces For</h2>
+        <ul className="service-list">
+          <li>🏢 Commercial property owners needing durable flooring</li>
+          <li>🏡 Homeowners wanting luxury finishes</li>
+          <li>🏨 Hospitality venues requiring stunning first impressions</li>
+          <li>🏛 Architects specifying premium materials</li>
+        </ul>
+      </section>
+
+      {/* How We Operate */}
+      <section className="process-section">
+        <h2>Our Installation Excellence Process</h2>
+        <div className="process-steps">
+          <div className="step">
+            <h3>1. Consultation</h3>
+            <p>On-site evaluation and design recommendations</p>
+          </div>
+          <div className="step">
+            <h3>2. Precision Preparation</h3>
+            <p>Subfloor conditioning and pattern layout</p>
+          </div>
+          <div className="step">
+            <h3>3. Expert Installation</h3>
+            <p>Skilled craftsmen using specialized techniques</p>
+          </div>
+          <div className="step">
+            <h3>4. Final Perfection</h3>
+            <p>Grinding, polishing, and quality inspection</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="materials-section">
+        <h2>Premium Materials & Professional Equipment</h2>
+        <p className="materials-intro">
+            We invest in top-grade installation materials and tools to ensure lasting terrazzo beauty:
+        </p>
+
+        <div className="materials-grid">
+            {/* Material Groups */}
+            <div className="material-group">
+            <h3>🏗️ Core Materials</h3>
+            <ul>
+                <li>ISO-Certified White Cement</li>
+                <li>Marble Chips (White, Cream, Black, Red)</li>
+                <li>Premium Oxide Pigments</li>
+                <li>Durable Dividing Strips</li>
+                <li>Quality Block Stone Bases</li>
+            </ul>
+            </div>
+
+            <div className="material-group">
+            <h3>✨ Finishing System</h3>
+            <ul>
+                <li>Industrial-Grade Flow Polish</li>
+                <li>Professional HCl Acid Solutions</li>
+                <li>High-Density Washing Pads</li>
+                <li>Diamond-Encrusted Grading Disks</li>
+            </ul>
+            </div>
+
+            <div className="material-group">
+            <h3>🔧 Professional Equipment</h3>
+            <ul>
+                <li>Machine Diamonds for Precision Cutting</li>
+                <li>Commercial-Grade Terrazzo Grinders</li>
+                <li>Skirting Timber Templates</li>
+                <li>Panel Pinning Systems</li>
+                <li>Specialized Hand Brushes</li>
+            </ul>
+            </div>
+        </div>
+
+        <div className="quality-badges">
+            <div className="badge">
+            <img src="/icons/iso-certified.png" alt="ISO Certified" />
+            <span>Certified Materials</span>
+            </div>
+            <div className="badge">
+            <img src="/icons/warranty.png" alt="5 Year Warranty" />
+            <span>5-Year Installation Warranty</span>
+            </div>
+            <div className="badge">
+            <img src="/icons/eco-friendly.png" alt="Eco Friendly" />
+            <span>Low-VOC Compounds</span>
+            </div>
+        </div>
+        </section>
+
+      {/* Persuasive CTA */}
+      <section className="cta-section">
+        <h2>Why Choose Our Installation Expertise?</h2>
+        <div className="usp-grid">
+          <div className="usp">
+            <h3>25+ Years Combined Experience</h3>
+            <p>Proven techniques for flawless results</p>
+          </div>
+          <div className="usp">
+            <h3>Custom Design Support</h3>
+            <p>Personalized patterns to match your vision</p>
+          </div>
+          <div className="usp">
+            <h3>5-Year Installation Guarantee</h3>
+            <p>Confidence in our workmanship</p>
+          </div>
+        </div>
+        <button className="cta-button">Get Your Free Installation Estimate</button>
+      </section>
+      <Footer />
+    </div>
+  );
+};
+
+export default AboutUs;

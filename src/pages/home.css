@@ -45,10 +45,9 @@
   margin-bottom: 1.5rem;
 }
 
-.h1 {
-  composes: business-heading;
-  font-size: 3.5rem;
-}
+/* .h1 {
+
+} */
 
 .h2 {
   composes: business-heading;
@@ -246,5 +245,159 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+/* Add these styles to your CSS */
+/* Add these keyframes at the top of your CSS file */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor; }
+}
+
+/* Modify your .h1 class */
+/* Mobile-first approach */
+/* components/Header.css */
+.h1 {
+  font-family: 'Courier New', monospace;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.animate-fade-in-up {
+  animation: 
+    fade-in-up 0.5s ease-out,
+    typing 3s steps(19, end) 0.5s forwards,
+    blink-caret 0.75s step-end infinite;
+  border-right: 2px solid;
+  max-width: max-content;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .h1 {
+    font-size: 1.5rem;
+  }
+  .animate-fade-in-up {
+    border-right-width: 1px;
+    animation: 
+      fade-in-up 0.5s ease-out,
+      typing 2.5s steps(19, end) 0.5s forwards,
+      blink-caret 0.75s step-end infinite;
+  }
+}
+@media (max-width: 480px) {
+  /* Typography adjustments */
+  .h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0.1em;
+  }
+  
+  .h2 {
+    font-size: 1.6rem;
+    padding-bottom: 0.3rem;
+  }
+  
+  .h3 {
+    font-size: 1.4rem;
+  }
+
+  /* Hero section mobile optimization */
+  .hero-content {
+    padding-bottom: 2rem;
+  }
+
+  /* Card adjustments */
+  .business-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Button full width on mobile */
+  .business-button {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  /* Trend carousel items */
+  .trend-item {
+    flex: 0 0 220px;
+    padding: 1rem;
+  }
+
+  /* Social proof grid adjustments */
+  .social-proof-grid {
+    gap: 1rem;
+  }
+
+  /* Typing animation adjustments */
+  .animate-fade-in-up {
+    animation: 
+      fade-in-up 0.4s ease-out,
+      typing 2s steps(19, end) 0.4s forwards,
+      blink-caret 0.75s step-end infinite;
+  }
+
+  /* Check-in widget spacing */
+  .checkin-widget {
+    margin: 0 -1rem;
+    border-radius: 0;
+  }
+
+  /* Design workspace height */
+  .design-workspace {
+    min-height: 300px;
+  }
+
+  /* 3D viewer adjustments */
+  .threejs-viewer {
+    border-radius: 0.5rem;
+    margin: 0 -1rem;
+    width: calc(100% + 2rem);
+  }
+
+  /* Utility spacing adjustments */
+  .business-homepage {
+    padding: 0 1rem;
+  }
+  
+  /* Reduce motion override */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up {
+      animation: none;
+      border-right: none;
+      white-space: normal;
+    }
   }
 }

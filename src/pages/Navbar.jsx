@@ -6,7 +6,7 @@ function Navbar() {
   const [nav, setNav] = useState(false);
 
   return (
-    <header className="navbar-header">
+<header className="navbar-header artistic-background">
       <div className="navbar-container">
         <a href="/">
           <h1 className="navbar-brand">DAVMAL</h1>
@@ -27,6 +27,7 @@ function Navbar() {
             />
           </svg>
         </span>
+
         <div className="nav-menu">
           <NavLink to="/" className="nav-link">
             <li className="nav-item">Home</li>
@@ -37,34 +38,15 @@ function Navbar() {
           <NavLink to="/portfolio" className="nav-link">
             <li className="nav-item">Portfolio</li>
           </NavLink>
-          <NavLink to="/feedback" className="nav-link">
-            <li className="nav-item">Feedback</li>
+          <NavLink to="/photos" className="nav-link">
+            <li className="nav-item">Gallery</li>
           </NavLink>
           <NavLink to="/contact" className="nav-link">
             <li className="nav-item">Contact</li>
           </NavLink>
         </div>
-        <a
-          href="https://github.com/PugazhendhiDev/"
-          className="hire-button"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            className="menu-icon"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
-            />
-          </svg>
-          <h1 className="hire-text">Hire</h1>
-        </a>
-      </div>
+        </div>
+ 
       {nav && (
         <div className="mobile-menu" onClick={() => setNav(!nav)}>
           <ul className="mobile-menu-list">
@@ -77,14 +59,15 @@ function Navbar() {
             <NavLink to="/portfolio" className="mobile-nav-link">
               <li className="mobile-nav-item">Portfolio</li>
             </NavLink>
-            <NavLink to="/feedback" className="mobile-nav-link">
-              <li className="mobile-nav-item">Feedback</li>
+            <NavLink to="/photos" className="mobile-nav-link">
+              <li className="mobile-nav-item">Gallery</li>
             </NavLink>
             <NavLink to="/contact" className="mobile-nav-link">
               <li className="mobile-nav-item">Contact</li>
             </NavLink>
           </ul>
         </div>
+        
       )}
     </header>
   );

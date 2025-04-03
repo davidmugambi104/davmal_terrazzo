@@ -1,19 +1,17 @@
-/* MovieCarousel.css */
 .movie-carousel {
-    position: relative;
-    max-width: 960px;
-    height: 560px; 
-    left:50%;
-    transform: translateX(-50%);
-    margin: 2rem auto;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
-    background: rgba(20, 20, 20, 0.95);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-  }
-  
+  position: relative;
+  max-width: 720px; /* Reduced from 960px */
+  height: 420px; /* Reduced from 560px */
+  left:50%;
+  transform: translateX(-50%);
+  margin: 1.5rem auto; /* Reduced from 2rem */
+  border-radius: 15px; /* Reduced from 20px */
+  overflow: hidden;
+  box-shadow: 0 19px 38px -9px rgba(0, 0, 0, 0.3); /* Scaled shadow */
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
   .loading-container {
     display: flex;
     flex-direction: column;
@@ -43,7 +41,7 @@
     min-height: 600px;
     overflow: hidden;
   }
-  
+
   .slide {
     position: absolute;
     top: 0;
@@ -514,8 +512,8 @@
   background: #1a1a1a;
   min-width: 960px;
   height: 560px;
-  border-radius: 20px;
-  padding: 3rem 2rem;
+  border-radius: 15px;
+  padding: 0.5rem 0.5rem;
   box-shadow: 
     0 0 80px rgba(0,0,0,0.8),
     inset 0 0 40px rgba(0,0,0,0.5);
@@ -657,4 +655,228 @@
     transparent 70%
   );
   filter: blur(0.5px);
+}
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .tv-screen {
+    min-width: 100%;
+    height: 300px;
+    border-radius: 4px;
+    animation: crt-flicker 0.15s infinite, mobile-scanline 4s linear infinite;
+  }
+
+  .tv-frame {
+    min-width: 100%;
+    height: 320px;
+    padding: 0.5rem;
+    border-radius: 12px;
+    transform: perspective(800px) rotateX(2deg);
+  }
+
+  .tv-frame::after {
+    width: 80px;
+    height: 30px;
+    bottom: -15px;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .slide-image-container {
+    width: 95%;
+    height: 85%;
+    margin: 2% auto;
+  }
+
+  .slide-image {
+    border-radius: 2px;
+  }
+
+  .thumbnail-carousel {
+    height: 100px;
+    margin-top: 1rem;
+  }
+
+  .thumbnail {
+    width: 120px;
+    height: 80px;
+  }
+
+  .tv-laser {
+    height: 1px;
+    bottom: 12%;
+    animation: laser-scan 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  .tv-status-led {
+    width: 6px;
+    height: 6px;
+    bottom: 15px;
+  }
+
+  /* Adjust animations for mobile */
+  @keyframes mobile-scanline {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(300%); }
+  }
+
+  /* Simplify hover effects for touch devices */
+  .slide:hover .movie-content,
+  .slide:hover .info-panel,
+  .thumbnail:hover {
+    transform: none;
+    filter: none;
+  }
+
+  .thumbnail:hover .thumbnail-info {
+    bottom: -100%;
+  }
+}
+/* Mobile Optimized Styles */
+@media (max-width: 768px) {
+  .movie-carousel {
+    height: 65vh;
+    min-height: 400px;
+    margin: 1rem auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  .main-display {
+    height: 50vh;
+    min-height: 300px;
+  }
+
+  .slide {
+    transform: scale(0.96);
+  }
+
+  .movie-info {
+    bottom: 10%;
+    left: 5%;
+    right: 5%;
+    max-width: 100%;
+    padding: 1rem;
+    backdrop-filter: blur(2px);
+  }
+
+  .movie-title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .movie-description {
+    font-size: 0.9rem;
+    max-width: 100%;
+    line-height: 1.4;
+  }
+
+  .action-buttons {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .play-button, .info-button {
+    padding: 10px 18px;
+    font-size: 1rem;
+    border-radius: 6px;
+  }
+
+  .progress-container {
+    bottom: 1rem;
+  }
+
+  .progress-track {
+    width: 35px;
+    height: 3px;
+  }
+
+  .navigation-controls {
+    padding: 0 1rem;
+  }
+
+  .nav-button {
+    width: 40px;
+    height: 40px;
+    backdrop-filter: blur(2px);
+  }
+
+  .arrow {
+    font-size: 1.5rem;
+  }
+
+  /* Touch optimization */
+  .thumbnail-carousel {
+    height: 100px;
+    margin: 1rem 0;
+    padding: 0 1rem;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .thumbnail {
+    position: relative;
+    scroll-snap-align: center;
+    filter: brightness(0.9);
+    transform: none !important;
+  }
+
+  .thumbnail-content {
+    width: 140px;
+    height: 80px;
+  }
+
+  .thumbnail-overlay {
+    display: none;
+  }
+
+  /* Disable hover states */
+  @media (hover: none) {
+    .slide:hover .slide-image,
+    .thumbnail:hover {
+      transform: none !important;
+      filter: none !important;
+    }
+    
+    .thumbnail:hover .thumbnail-overlay {
+      opacity: 0;
+    }
+  }
+
+  /* Performance optimizations */
+  .crt-overlay,
+  .tv-laser,
+  .tv-status-led {
+    display: none;
+  }
+
+  .tv-screen {
+    animation: none;
+  }
+}
+
+/* Ultra Mobile (Portrait) */
+@media (max-width: 480px) and (orientation: portrait) {
+  .movie-carousel {
+    height: 55vh;
+    border-radius: 4px;
+  }
+
+  .movie-title {
+    font-size: 1.5rem;
+  }
+
+  .movie-description {
+    font-size: 0.85rem;
+  }
+
+  .progress-track {
+    width: 25px;
+  }
+
+  .nav-button {
+    width: 35px;
+    height: 35px;
+  }
 }

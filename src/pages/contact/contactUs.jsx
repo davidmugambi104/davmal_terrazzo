@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import './contact.css';
+import Navbar from '../Navbar';
+import Footer from '../footer.jsx';
 
 const ContactForm = () => {
   const [activeTab, setActiveTab] = useState('email');
@@ -15,7 +17,7 @@ const ContactForm = () => {
   const [success, setSuccess] = useState(null);
 
   // WhatsApp configuration (replace with your number)
-  const whatsappNumber = '+254776278225'; // International format
+  const whatsappNumber = '+254111931531'; // International format
 
   useEffect(() => {
     if (success) {
@@ -90,6 +92,9 @@ const ContactForm = () => {
   };
 
   return (
+    <React.Fragment>
+    <Navbar/>
+    
     <div className="contact-container">
       <h1 className="typing-header">Contact Us</h1>
       <div className="tab-switcher">
@@ -170,7 +175,10 @@ const ContactForm = () => {
           )}
         </button>
       </form>
+    
     </div>
+    <Footer />
+    </React.Fragment>
   );
 };
 
