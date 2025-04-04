@@ -1,45 +1,74 @@
 /* components/AnimatedHeading.css */
-.h1 {
-    font-family: 'Courier New', monospace;
-    overflow: hidden;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: 0.15em;
-    border-right: var(--cursor-width, 2px) solid;
+:root {
+  --cursor-width: 0.1em;
+  --typing-duration: 2.5s;
+  --typing-steps: 19;
+  --base-font-size: clamp(1.25rem, 4vw + 0.5rem, 2rem);
+}
+
+.animated-heading {
+  font-family: 'Courier New', monospace;
+  font-size: var(--base-font-size);
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.1em;
+  max-width: 90vw;
+  border-right: var(--cursor-width) solid;
+  animation: 
+    fade-in-up 0.5s ease-out,
+    typing var(--typing-duration) steps(var(--typing-steps)) 0.5s forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile landscape and portrait adjustments */
+@media (max-width: 768px) {
+  .animated-heading {
+    --typing-duration: 2s;
+    --cursor-width: 0.08em;
+    letter-spacing: 0.05em;
+    max-width: 95vw;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .animated-heading {
+    --typing-duration: 1.8s;
+    white-space: normal;
+    border-right: none;
     animation: 
       fade-in-up 0.5s ease-out,
-      typing var(--typing-duration, 3s) steps(var(--typing-steps, 19)) 0.5s forwards,
-      blink-caret 0.75s step-end infinite;
+      typing var(--typing-duration) steps(var(--typing-steps)) 0.5s forwards;
   }
   
-  .text-center {
-    text-align: center;
+  .animated-heading::after {
+    content: "▋";
+    animation: blink-caret 0.75s step-end infinite;
   }
-  
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
-  
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: currentColor; }
-  }
-  
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Base mobile styles */
-  @media (max-width: 768px) {
-    .h1 {
-      font-size: 1.5rem;
-    }
-  }
+}
