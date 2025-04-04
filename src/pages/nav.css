@@ -2,7 +2,7 @@
 :root {
   --primary-gradient: linear-gradient(135deg, #2a6b5f 0%, #00c1b3 50%, #8ad4ff 100%, );
   --glass-bg: rgba(255, 255, 255, 0.95);
-  --navlink-color: #2a6b5f;
+  --navlink-color: #4A90E2;
 }
 
 /* Enhanced Header */
