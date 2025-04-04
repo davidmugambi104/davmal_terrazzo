@@ -14,7 +14,6 @@
   "@emotion/styled": "^11.14.0",
   "@heroicons/react": "^2.2.0",
   "@livekit/components-react": "^2.8.1",
-  "@livekit/react-components": "^1.1.0",
   "@mui/icons-material": "^7.0.1",
   "@mui/material": "^7.0.1",
   "@react-spring/core": "^9.7.5",
