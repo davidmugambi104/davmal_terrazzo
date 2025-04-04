@@ -33,9 +33,24 @@ const TerrazzoGallery = () => {
               className="terrazzo-image"
               loading="lazy"
             />
-            <div className="image-overlay">
-              <button className="inquiry-button">Request Sample</button>
-            </div>
+          <div className="image-overlay">
+            <button 
+              className="inquiry-button"
+              onClick={() => { 
+                alert('Redirecting to WhatsApp for inquiry...');
+                // Replace with your actual WhatsApp number (include country code without + or 0)
+                const whatsappNumber = '+254729159585'; // Example: 911234567890
+                const defaultMessage = 'Hello! I would like to request a sample of this terrazzo design.';
+                
+                window.open(
+                  `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(defaultMessage)}`,
+                  '_blank'
+                );
+              }}
+            >
+              Request Sample
+            </button>
+          </div>
           </div>
         ))}
       </div>
