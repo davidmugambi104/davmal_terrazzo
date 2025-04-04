@@ -14,42 +14,35 @@ const TypeEffect = () => {
   useEffect(() => {
     let timeoutId;
     let intervalId;
-
+    const startTime = Date.now();
+    const totalCharacters = message.length;
+  
     const typeCharacter = () => {
-      if (indexRef.current < message.length) {
-        const currentChar = message[indexRef.current];
-        const nextChar = message[indexRef.current + 1];
-
-        setDisplayText(prev => prev + currentChar);
-
-        let delay = Math.random() * 150 + 50;
-        
-        if (currentChar.match(/[.,!?\n]/)) delay += 300;
-        if (currentChar === ' ' && nextChar === ' ') delay += 200;
-
-        if (Math.random() < 0.02) {
-          timeoutId = setTimeout(() => {
-            setDisplayText(prev => prev.slice(0, -1));
-            timeoutId = setTimeout(typeCharacter, 100);
-          }, delay);
-          return;
-        }
-
-        indexRef.current++;
-        timeoutId = setTimeout(typeCharacter, delay);
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / 4000, 1); // 4 second total duration
+      const currentIndex = Math.floor(progress * totalCharacters);
+  
+      if (currentIndex > indexRef.current) {
+        setDisplayText(message.slice(0, currentIndex));
+        indexRef.current = currentIndex;
+      }
+  
+      if (progress < 1) {
+        timeoutId = requestAnimationFrame(typeCharacter);
       } else {
+        setDisplayText(message);
         intervalId = setInterval(() => {
           setCursorVisible(prev => !prev);
-        }, 700);
-        
-        setTimeout(() => setShowButton(true), 1000);
+        }, 500);
+        setShowButton(true);
       }
     };
-
-    timeoutId = setTimeout(typeCharacter, 1000);
-
+  
+    // Start typing immediately with RAF for smooth animation
+    timeoutId = requestAnimationFrame(typeCharacter);
+  
     return () => {
-      clearTimeout(timeoutId);
+      cancelAnimationFrame(timeoutId);
       clearInterval(intervalId);
     };
   }, []);
