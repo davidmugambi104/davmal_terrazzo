@@ -87,6 +87,18 @@ const HomePage = () => {
     </section>
   );
 
+  const renderRecommendations = () => (
+    <section className="py-16 px-4">
+      <h2 className="h2 text-center mb-12">Design Inspirations</h2>
+      <div className="social-proof-grid max-w-7xl mx-auto gap-8">
+        {[1].map(id => (
+          <div className="business-card group overflow-hidden p-0" key={id}>
+            <AntiquePhotoFrame imageUrl={`/placeholder-design-${id}.jpg`} />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
   // Social proof section
   const renderSocialProof = () => (
     <section ref={sectionRef} className="py-16 px-4">
@@ -106,18 +118,7 @@ const HomePage = () => {
   );
 
   // Recommendations section (restored with placeholder data)
-  const renderRecommendations = () => (
-    <section className="py-16 px-4">
-      <h2 className="h2 text-center mb-12">Design Inspirations</h2>
-      <div className="social-proof-grid max-w-7xl mx-auto gap-8">
-        {[1].map(id => (
-          <div className="business-card group overflow-hidden p-0" key={id}>
-            <AntiquePhotoFrame imageUrl={`/placeholder-design-${id}.jpg`} />
-          </div>
-        ))}
-      </div>
-    </section>
-  );
+
 
   // Interactive design section
   const renderDesignSection = () => (
