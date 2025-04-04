@@ -4,27 +4,27 @@
 import { useEffect, useState } from 'react';
 import './AnimatedHead.css';
 export const ResponsiveAnimatedHeading = () => {
-  // const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setIsMobile(window.innerWidth <= 768);
-  //   };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
 
-  //   // Initial check
-  //   handleResize();
+    // Initial check
+    handleResize();
     
-  //   // Add resize listener
-  //   window.addEventListener('resize', handleResize);
+    // Add resize listener
+    window.addEventListener('resize', handleResize);
     
-  //   // Cleanup
-  //   return () => window.removeEventListener('resize', handleResize);
-  // }, []);
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-  // const animationStyles = {
-  //   '--typing-steps': isMobile ? '19' : '19',
-  //   '--typing-duration': isMobile ? '2.5s' : '3s',
-
+  const animationStyles = {
+    '--typing-steps': isMobile ? '19' : '19',
+    '--typing-duration': isMobile ? '2.5s' : '3s',
+    '--cursor-width': isMobile ? '1px' : '2px'
   };
 
   return (
@@ -35,5 +35,5 @@ export const ResponsiveAnimatedHeading = () => {
       DAVMAL ENT
     </h1>
   );
-
+};
 export default ResponsiveAnimatedHeading;
