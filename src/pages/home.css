@@ -1,403 +1,186 @@
 /* fonts.css */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap');
 
-/* Base variables and theme setup */
+/* Updated Color Variables */
 :root {
-  --primary-color: #2A2D34;
-  --secondary-color: #009DDC;
-  --accent-color: #F26430;
-  --light-bg: #F8F9FA;
-  --dark-bg: #1A1D23;
-  --text-light: #E8E9EB;
-  --text-dark: #2A2D34;
-  --transition-base: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --primary-color: #1A2A4F;       /* Navy blue - professionalism */
+  --secondary-color: #2A75B3;     /* Trustworthy medium blue */
+  --accent-color: #3AAFA9;        /* Sophisticated teal accent */
+  --neutral-dark: #2B2D42;        /* Dark slate contrast */
+  --neutral-light: #F8F9FF;       /* Crisp light background */
+  --text-dark: #0A1220;           /* Deep navy text */
+  --text-light: #F8F9FF;          /* Light text */
+  --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-theme="dark"] {
-  --primary-color: #E8E9EB;
-  --secondary-color: #00B4F0;
-  --accent-color: #FF6B4A;
-  --light-bg: #2A2D34;
-  --dark-bg: #121417;
-  --text-light: #2A2D34;
-  --text-dark: #E8E9EB;
+  --primary-color: #E8F1F5;       /* Ice blue */
+  --secondary-color: #4A90E2;     /* Azure blue */
+  --accent-color: #5BC0BE;        /* Vibrant cyan */
+  --neutral-dark: #0A1220;        /* Deep navy */
+  --neutral-light: #1A2A4F;       /* Medium navy */
+  --text-dark: #F8F9FF;           /* White text */
+  --text-light: #0A1220;          /* Dark text */
 }
 
-/* Core layout styles */
+/* Core Layout */
 .business-homepage {
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
-  background-color: var(--light-bg);
+  background-color: var(--neutral-light);
 }
 
 [data-theme="dark"] .business-homepage {
   color: var(--text-light);
-  background-color: var(--dark-bg);
+  background-color: var(--neutral-dark);
 }
 
-/* Typography hierarchy */
+/* Typography */
 .business-heading {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.2;
+  color: var(--primary-color);
+  text-shadow: 1px 1px 2px rgba(26, 42, 79, 0.1);
+}
+
+.h1 {
+  font-size: 3rem;
   margin-bottom: 1.5rem;
 }
 
-/* .h1 {
-
-} */
-
 .h2 {
-  composes: business-heading;
   font-size: 2.5rem;
-  border-bottom: 3px solid var(--secondary-color);
+  border-bottom: 3px solid var(--accent-color);
   padding-bottom: 0.5rem;
   display: inline-block;
 }
 
 .h3 {
-  composes: business-heading;
   font-size: 1.8rem;
   margin-bottom: 1rem;
 }
 
-/* Hero section enhancements */
+/* Hero Section */
 .hero-section {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
 }
 
 .hero-overlay {
-  position: absolute;
-  inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.4) 50%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(26, 42, 79, 0.9) 0%,
+    rgba(26, 42, 79, 0.4) 50%,
+    rgba(26, 42, 79, 0) 100%
   );
-  z-index: 1;
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
+  color: var(--text-light);
   padding-bottom: 8rem;
 }
 
-/* Data visualization cards */
+/* Cards */
 .business-card {
-  background: var(--light-bg);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  background: var(--neutral-light);
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 10px 30px rgba(26, 42, 79, 0.05);
   transition: var(--transition-base);
-}
-
-[data-theme="dark"] .business-card {
-  background: var(--dark-bg);
-  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .business-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 40px rgba(26, 42, 79, 0.1);
 }
 
-/* Social proof grid */
-.social-proof-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-/* Interactive elements */
+/* Buttons */
 .business-button {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.8rem 2rem;
-  border-radius: 0.5rem;
-  font-weight: 500;
-  transition: var(--transition-base);
   background: var(--secondary-color);
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  color: var(--text-light);
+  border: 2px solid var(--secondary-color);
+  transition: var(--transition-base);
 }
 
 .business-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 157, 220, 0.3);
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 5px 15px rgba(58, 175, 169, 0.3);
 }
 
-/* Timeline animations */
+/* 3D Viewer */
+.threejs-viewer {
+  background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+}
+
+/* Social Proof Grid */
+.social-proof-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Animations */
 @keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease-out forwards;
 }
 
-/* Responsive adjustments */
+/* Responsive Design */
 @media (max-width: 1024px) {
-  .h1 {
-    font-size: 2.8rem;
-  }
-  
-  .h2 {
-    font-size: 2rem;
-  }
-  
-  .social-proof-grid {
-    grid-template-columns: 1fr;
-  }
+  .h1 { font-size: 2.8rem; }
+  .h2 { font-size: 2rem; }
 }
 
 @media (max-width: 768px) {
-  .hero-content {
-    padding-bottom: 4rem;
-  }
-  
-  .h1 {
-    font-size: 2.2rem;
-  }
-  
+  .hero-content { padding-bottom: 4rem; }
+  .h1 { font-size: 2.2rem; }
+  .business-card { padding: 1.5rem; }
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] {
   .business-card {
-    padding: 1.5rem;
-  }
-}
-
-/* 3D viewer enhancements */
-.threejs-viewer {
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(45deg, var(--secondary-color) 0%, var(--accent-color) 100%);
-}
-
-/* Trend carousel */
-.trend-carousel {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  padding-bottom: 1rem;
-  scroll-snap-type: x mandatory;
-}
-
-.trend-item {
-  scroll-snap-align: start;
-  flex: 0 0 280px;
-  background: var(--light-bg);
-  border-radius: 0.8rem;
-  padding: 1.5rem;
-  transition: var(--transition-base);
-}
-
-[data-theme="dark"] .trend-item {
-  background: var(--dark-bg);
-}
-
-.trend-item:hover {
-  background: rgba(0, 157, 220, 0.05);
-}
-
-/* Check-in widget styling */
-.checkin-widget {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="dark"] .checkin-widget {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-/* Pattern generator workspace */
-.design-workspace {
-  border-radius: 1rem;
-  background: var(--light-bg);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  min-height: 500px;
-}
-
-[data-theme="dark"] .design-workspace {
-  background: var(--dark-bg);
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-/* Performance optimizations */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-/* Add these styles to your CSS */
-/* Add these keyframes at the top of your CSS file */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: currentColor; }
-}
-
-/* Modify your .h1 class */
-/* Mobile-first approach */
-/* components/Header.css */
-.h1 {
-  font-family: 'Courier New', monospace;
-  overflow: hidden;
-  white-space: nowrap;
-  margin: 0 auto;
-  letter-spacing: 0.15em;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.animate-fade-in-up {
-  animation: 
-    fade-in-up 0.5s ease-out,
-    typing 3s steps(19, end) 0.5s forwards,
-    blink-caret 0.75s step-end infinite;
-  border-right: 2px solid;
-  max-width: max-content;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: currentColor; }
-}
-
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .h1 {
-    font-size: 1.5rem;
-  }
-  .animate-fade-in-up {
-    border-right-width: 1px;
-    animation: 
-      fade-in-up 0.5s ease-out,
-      typing 2.5s steps(19, end) 0.5s forwards,
-      blink-caret 0.75s step-end infinite;
-  }
-}
-@media (max-width: 480px) {
-  /* Typography adjustments */
-  .h1 {
-    font-size: 1.8rem;
-    letter-spacing: 0.1em;
+    background: var(--neutral-dark);
+    border-color: rgba(232, 241, 245, 0.1);
   }
   
-  .h2 {
-    font-size: 1.6rem;
-    padding-bottom: 0.3rem;
-  }
-  
-  .h3 {
-    font-size: 1.4rem;
-  }
-
-  /* Hero section mobile optimization */
-  .hero-content {
-    padding-bottom: 2rem;
-  }
-
-  /* Card adjustments */
-  .business-card {
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  /* Button full width on mobile */
-  .business-button {
-    width: 100%;
-    justify-content: center;
-    padding: 1rem;
-  }
-
-  /* Trend carousel items */
-  .trend-item {
-    flex: 0 0 220px;
-    padding: 1rem;
-  }
-
-  /* Social proof grid adjustments */
-  .social-proof-grid {
-    gap: 1rem;
-  }
-
-  /* Typing animation adjustments */
-  .animate-fade-in-up {
-    animation: 
-      fade-in-up 0.4s ease-out,
-      typing 2s steps(19, end) 0.4s forwards,
-      blink-caret 0.75s step-end infinite;
-  }
-
-  /* Check-in widget spacing */
-  .checkin-widget {
-    margin: 0 -1rem;
-    border-radius: 0;
-  }
-
-  /* Design workspace height */
-  .design-workspace {
-    min-height: 300px;
-  }
-
-  /* 3D viewer adjustments */
   .threejs-viewer {
-    border-radius: 0.5rem;
-    margin: 0 -1rem;
-    width: calc(100% + 2rem);
-  }
-
-  /* Utility spacing adjustments */
-  .business-homepage {
-    padding: 0 1rem;
+    background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
   }
   
-  /* Reduce motion override */
-  @media (prefers-reduced-motion: reduce) {
-    .animate-fade-in-up {
-      animation: none;
-      border-right: none;
-      white-space: normal;
-    }
+  .business-button:hover {
+    box-shadow: 0 5px 15px rgba(75, 192, 190, 0.3);
   }
+}
+
+/* Typing Animation Styles */
+.h1.text-center {
+  border-right: 2px solid var(--accent-color);
+  animation: 
+    typing 3s steps(19, end),
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--accent-color); }
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+  .h1 { font-size: 1.8rem; }
+  .h2 { font-size: 1.6rem; }
+  .business-button { width: 100%; }
 }

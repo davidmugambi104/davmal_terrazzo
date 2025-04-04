@@ -176,9 +176,6 @@ const HomePage = () => {
             {renderSocialProof()}
             
 
-
-
-
           </>
         )}
         
