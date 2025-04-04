@@ -1,3 +1,86 @@
+/* Add this at the top of your CSS */
+html, body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#about-container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  #about-container {
+    padding: 1rem;
+  }
+
+  .hero-section {
+    padding: 2rem 0;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .usp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-section {
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .cta-button {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .materials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quality-badges {
+    gap: 1.5rem;
+  }
+
+  .badge {
+    min-width: 120px;
+  }
+
+  .professional-background::before {
+    background-size: 200px 200px; /* Reduce noise texture size */
+  }
+}
+
+/* Desktop Fixes */
+@media (min-width: 1200px) {
+  #about-container {
+    max-width: 100%;
+  }
+}
+
+/* Existing styles below... */
 #about-container {
   max-width: 1200px;
   margin: 0 auto;

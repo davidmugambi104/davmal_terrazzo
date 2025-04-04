@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './AboutPage.css'; // Create this CSS file for styling
 import Navbar from '../Navbar';
 import Footer from '../footer.jsx';
+import '../gallery.css'
 
 import terrazzo1 from '../images/terrazzo1.jpg';
 import terrazzo2 from '../images/terrazzo2.jpg';
@@ -20,7 +21,7 @@ export const AboutUs = () => {
     <div id="about-container"  className="professional-background">
         <Navbar />
       <section className="h1 hero-section">
-        <h1>Elevating Spaces with Timeless Terrazzo Craftsmanship</h1>
+        <h1>Terrazzo experts</h1>
       </section>
 
       {/* Brand Story Section */}
@@ -156,15 +157,26 @@ export const AboutUs = () => {
             <p>Proven techniques for flawless results</p>
           </div>
           <div className="usp">
-            <h3>Custom Design Support</h3>
-            <p>Personalized patterns to match your vision</p>
-          </div>
-          <div className="usp">
-            <h3>5-Year Installation Guarantee</h3>
+            <h3>10-Year Installation Guarantee</h3>
             <p>Confidence in our workmanship</p>
           </div>
         </div>
-        <button className="cta-button">Get Your Free Installation Estimate</button>
+            <button 
+              className="inquiry-button"
+              onClick={() => { 
+                alert('Redirecting to WhatsApp for inquiry...');
+                // Replace with your actual WhatsApp number (include country code without + or 0)
+                const whatsappNumber = '+254729159585'; // Example: 911234567890
+                const defaultMessage = 'Hello! I would like to request a sample of this terrazzo design.';
+                
+                window.open(
+                  `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(defaultMessage)}`,
+                  '_blank'
+                );
+              }}
+            >
+              Request Sample
+            </button>
       </section>
       <Footer />
     </div>
