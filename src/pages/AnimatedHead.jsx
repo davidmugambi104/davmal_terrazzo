@@ -32,7 +32,7 @@ export const ResponsiveAnimatedHeading = () => {
       className="h1 text-center animate-fade-in-up"
       style={animationStyles}
     >
-      DAVMAL TERRAZZO ENT
+      DAVMAL ENT
     </h1>
   );
 };
