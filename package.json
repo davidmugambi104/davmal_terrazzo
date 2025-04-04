@@ -21,6 +21,7 @@
     "@react-three/fiber": "^8.16.4",
     "@use-gesture/react": "^10.2.25",
     "axios": "^1.6.2",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^10.16.4",
     "livekit-client": "^1.15.13",
     "lodash": "^4.17.21",
