@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 const ReviewAggregator = () => {
     const [reviews, setReviews] = useState([
-        { id: 1, name: "John Doe", text: "Great product! Highly recommend." },
-        { id: 2, name: "Jane Smith", text: "Good quality, but shipping was slow." }
+        { id: 1, name: "smith k.", text: "Great product! Highly recommend." },
+        { id: 2, name: "Joyce Maria.", text: "Excellent quality and fast shipping!" }, { id: 3, name: "John Demmarco", text: "Good quality, but shipping was slow." }
     ]);
     const [name, setName] = useState('');
     const [text, setText] = useState('');
@@ -29,7 +29,7 @@ const ReviewAggregator = () => {
                     </li>
                 ))}
             </ul>
-            <form onSubmit={handleSubmit} className="space-y-3">
+            {/* <form onSubmit={handleSubmit} className="space-y-3">
                 <input 
                     type="text" 
                     placeholder="Your Name" 
@@ -50,7 +50,7 @@ const ReviewAggregator = () => {
                     className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
                     Submit Review
                 </button>
-            </form>
+            </form> */}
         </div>
     );
 };
