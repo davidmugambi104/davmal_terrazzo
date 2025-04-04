@@ -24,7 +24,7 @@ export const ResponsiveAnimatedHeading = () => {
   const animationStyles = {
     '--typing-steps': isMobile ? '19' : '19',
     '--typing-duration': isMobile ? '2.5s' : '3s',
-    '--cursor-width': isMobile ? '1px' : '2px'
+
   };
 
   return (

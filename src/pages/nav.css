@@ -1,21 +1,8 @@
 /* nav.css */
 :root {
-  --neutral-gradient: linear-gradient(
-    135deg,
-    #F5F1E8 0%,    /* Soft warm beige */
-    #D4C8B5 25%,   /* Medium taupe */
-    #A89985 50%,   /* Muted clay taupe */
-    #7A6E62 75%,   /* Warm gray-taupe */
-    #E8E2D9 100%   /* Pale stone beige */
-  );
-  
-  --glass-bg: rgba(245, 241, 232, 0.97);  /* Semi-transparent warm parchment */
-  --navlink-color: #7A6E62;               /* Deep taupe-gray for contrast */
-  
-  /* Additional neutral accents */
-  --warm-gray: #948B7A;
-  --cool-taupe: #B8AEA3;
-  --stone-beige: #DAD2C7;
+  --primary-gradient: linear-gradient(135deg, #2a6b5f 0%, #00c1b3 50%, #8ad4ff 100%, );
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --navlink-color: #2a6b5f;
 }
 
 /* Enhanced Header */
