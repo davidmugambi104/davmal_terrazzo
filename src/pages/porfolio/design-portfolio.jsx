@@ -99,9 +99,6 @@ export const BusinessPortfolio = () => {
             ))}
           </div>
         </div>
-        <div className="hero-image">
-          <img src="/images/hero-installation.jpg" alt="Terrazzo installation process" />
-        </div>
       </section>
 
       {/* Work Samples */}
