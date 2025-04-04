@@ -36,7 +36,7 @@ import terrazzo32 from './images/terrazzo32.jpg';
 import terrazzo33 from './images/terrazzo33.jpg';
 import Footer from './footer';
 
-export const TerrazzoGallery = () => {
+const TerrazzoGallery = () => {
   const terrazzoImages = [
     terrazzo1, terrazzo2, terrazzo3, terrazzo4, terrazzo5,
     terrazzo6, terrazzo7, terrazzo8, terrazzo9, terrazzo10,

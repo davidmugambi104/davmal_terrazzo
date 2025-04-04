@@ -2,7 +2,6 @@ import { useEffect, useState, useContext, useMemo } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { debounce } from 'lodash';
 import { useInView } from 'react-intersection-observer';
-import { ThemeContext } from '../context/theme-context';
 import PatternGenerator from '../pages/products/custom-design-lab/PatternGenerator';
 import RealTimeRender from '../pages/products/custom-design-lab/RealTimeRender';
 import YouTubeAntiquePlayer from './VideoPopup.jsx';
@@ -29,7 +28,7 @@ const HomePageErrorFallback = ({ error, resetErrorBoundary }) => (
 );
 
 const HomePage = () => {
-  const { theme } = useContext(ThemeContext);
+  // const { theme } = useContext(ThemeContext);
   const [threeEnv, setThreeEnv] = useState(null);
   const [sectionRef, isSectionVisible] = useInView({ threshold: 0.1, rootMargin: '200px' });
   const [loading, setLoading] = useState(false); // Preserved for future use
@@ -37,10 +36,10 @@ const HomePage = () => {
   // Configuration
   const envConfig = useMemo(() => ({
     textureResolution: '4k',
-    lightingPreset: theme === 'dark' ? 'moonlit' : 'sunny',
+    // lightingPreset: theme === 'dark' ? 'moonlit' : 'sunny',
     shadowQuality: 'high',
     antialias: true
-  }), [theme]);
+  }), []);
 
   // Three.js setup and resize handling
   useEffect(() => {
@@ -98,7 +97,7 @@ const HomePage = () => {
               <YouTubeAntiquePlayer/>
             </div>
             <div className="business-card md:col-span-2 p-6">
-              <ReviewAggregator theme={theme} />
+              <ReviewAggregator />
             </div>
           </>
         )}
@@ -127,7 +126,7 @@ const HomePage = () => {
         <h2 className="h2 mb-8">Live Design Studio</h2>
         <div className="design-workspace grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
           <PatternGenerator 
-            theme={theme}
+            
             className="min-h-[500px]"
           />
           <RealTimeRender 
@@ -163,7 +162,7 @@ const HomePage = () => {
 
   return (
     <ErrorBoundary FallbackComponent={HomePageErrorFallback}>
-      <div data-theme={theme} className="business-homepage min-h-screen transition-colors duration-300">
+      <div className="business-homepage min-h-screen transition-colors duration-300">
         <Navbar />
         {renderHeroSection()}
         
