@@ -170,10 +170,15 @@ const HomePage = () => {
         {/* Loading state preserved for future use */}
         {loading ? renderLoadingSkeleton() : (
           <>
-            {renderSocialProof()}
             {renderRecommendations()}
             {renderDesignSection()}
             {renderCommunitySection()}
+            {renderSocialProof()}
+            
+
+
+
+
           </>
         )}
         
