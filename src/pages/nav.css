@@ -301,6 +301,10 @@
     width: 5px;
     height: 2.5px;
   }
+  .gradient-text {
+
+    color: #000;
+  }
 }
 
 /* Portrait Orientation Fixes */
@@ -308,4 +312,8 @@
   .mobile-nav {
     backdrop-filter: blur(8px);
   }
+}
+.gradient-text {
+
+  color: #000;
 }
