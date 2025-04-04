@@ -1,8 +1,8 @@
 /* nav.css */
 :root {
-  --primary-gradient: linear-gradient(135deg, #2a6b5f 0%, #00c1b3 50%, #8ad4ff 100%, );
+  --primary-gradient: linear-gradient(135deg, #2a6b5f 0%, #2A75B3  25%, #3AAFA9 50%, #00c1b3 75%, #e6fffc 100%);
   --glass-bg: rgba(255, 255, 255, 0.95);
-  --navlink-color: #4A90E2;
+  --navlink-color: #010807;
 }
 
 /* Enhanced Header */
@@ -37,7 +37,7 @@
   font-size: 2.5rem; /* Increased size */
   font-weight: 900;
   letter-spacing: -1.5px;
-  background: var(--primary-gradient);
+  background: #000;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -301,10 +301,6 @@
     width: 5px;
     height: 2.5px;
   }
-  .gradient-text {
-
-    color: #000;
-  }
 }
 
 /* Portrait Orientation Fixes */
@@ -312,8 +308,4 @@
   .mobile-nav {
     backdrop-filter: blur(8px);
   }
-}
-.gradient-text {
-
-  color: #000;
 }

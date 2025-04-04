@@ -73,11 +73,11 @@ const HomePage = () => {
   const renderHeroSection = () => (
     <section className="hero-section relative h-[80vh] overflow-hidden">
       <div className="hero-overlay" />
-      <canvas 
+      {/* <canvas 
         id="threejs-canvas" 
         className="threejs-viewer absolute inset-0 w-full h-full"
         ref={canvas => threeEnv?.initialize(canvas)}
-      />
+      /> */}
       <div className="hero-content absolute bottom-0 left-0 right-0 p-8">
         <ResponsiveAnimatedHeading />
         <div className="max-w-2xl mx-auto mt-8">
