@@ -43,7 +43,7 @@ function Navbar() {
           <NavLink to="/" className="nav-link">Home</NavLink>
           <NavLink to="/about" className="nav-link">About</NavLink>
           <NavLink to="/portfolio" className="nav-link">Portfolio</NavLink>
-          <NavLink to="/feedback" className="nav-link">Feedback</NavLink>
+          <NavLink to="/photos" className="nav-link">gallery</NavLink>
           <NavLink to="/contact" className="nav-link">Contact</NavLink>
         </nav>
 
@@ -73,8 +73,8 @@ function Navbar() {
               <NavLink to="/portfolio" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
                 Portfolio
               </NavLink>
-              <NavLink to="/feedback" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
-                Feedback
+              <NavLink to="/photos" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+                gallery
               </NavLink>
               <NavLink to="/contact" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
                 Contact

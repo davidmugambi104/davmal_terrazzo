@@ -31,7 +31,7 @@ export const BusinessPortfolio = () => {
     },
     projects: [
       {
-        title: "Luxury Hotel Lobby Installation",
+        title: "Vicodec highschool",
         image: "/images/project-1.jpg",
         scope: "2,500 sqft • Venetian Style Terrazzo",
         result: "30% increased guest satisfaction scores"

@@ -27,10 +27,10 @@ export const AboutUs = () => {
       <section className="content-section">
         <h2>Our Terrazzo Legacy</h2>
         <p>
-          {`Since [YEAR], Davmal Terrazzo Enterprises has transformed floors across Nairobi city and beyond,
+          {`Since 2010, Davmal Terrazzo Enterprises has transformed floors across Nairobi city and beyond,
           into stunning terrazzo masterpieces. What began as a family passion for 
           durable, beautiful surfaces has grown into a specialized installation 
-          service trusted by +254722316668 or +254 729 159585 satisfied customers.`}
+          service trusted by +254 729 159585 satisfied customers.`}
         </p>
       </section>
 
@@ -138,7 +138,7 @@ export const AboutUs = () => {
             </div>
             <div className="badge">
             <img src="/icons/warranty.png" alt="5 Year Warranty" />
-            <span>5-Year Installation Warranty</span>
+            <span>10-Year Installation Warranty</span>
             </div>
             <div className="badge">
             <img src="/icons/eco-friendly.png" alt="Eco Friendly" />
