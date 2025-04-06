@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { XMarkIcon, ArrowLeftIcon, ArrowRightIcon, ShareIcon } from '@heroicons/react/24/outline';
-
+import terrazzo58 from './images/terrazzo58.jpg';
+import terrazzo53 from './images/terrazzo18.jpg';
 const ShopGallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -8,16 +9,18 @@ const ShopGallery = () => {
   const images = [
     {
       id: 1,
-      url: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7',
-      title: 'Modern Living Room',
-      description: 'Contemporary living room design with premium materials'
+      url: terrazzo58,
+      title: 'Happy client',
+      description: 'Designed a unique terrazzo pattern with a modern touch for a client'
     },
+
     {
       id: 2,
-      url: 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154',
-      title: 'Kitchen Design',
-      description: 'Professional kitchen setup with modern appliances'
+      url: terrazzo53,
+      title: 'Vicodec highschool project',
+      description: 'Completed a large-scale terrazzo installation in a high school'
     },
+
   ];
 
   useEffect(() => {

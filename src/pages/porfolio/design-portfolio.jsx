@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './portfolio.css';
 import Navbar from '../Navbar.jsx';
 import Footer from '../footer.jsx';
+import terrazzo53 from '../images/terrazzo69.jpg';
 
 export const BusinessPortfolio = () => {
   const [activeSection, setActiveSection] = useState('about');
@@ -32,9 +33,9 @@ export const BusinessPortfolio = () => {
     projects: [
       {
         title: "Vicodec highschool",
-        image: "/images/project-1.jpg",
-        scope: "2,500 sqft • Venetian Style Terrazzo",
-        result: "30% increased guest satisfaction scores"
+        image: terrazzo53,
+        scope: "10,000 sqft • Custom Design",
+        result: "15% reduction in material waste"
       },
       // Add more projects
     ],
@@ -103,22 +104,48 @@ export const BusinessPortfolio = () => {
 
       {/* Work Samples */}
       <section id="work" className="portfolio-section">
-        <h2>Signature Projects</h2>
-        <div className="project-grid">
-          {portfolioData.projects.map((project, index) => (
-            <div key={index} className="project-card">
-              <div className="project-image">
-                <img src={project.image} alt={project.title} />
-                <div className="project-hover">
-                  <h3>{project.title}</h3>
-                  <p>{project.scope}</p>
-                  <div className="project-result">{project.result}</div>
+            <h2 className="section-title">Strategic Innovations</h2>
+            <div className="project-grid">
+                {portfolioData.projects.map((project, index) => (
+                <div key={index} className="project-card">
+                    <div className="project-media">
+                    <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="project-image"
+                        loading="lazy"
+                    />
+                    <div className="project-content">
+                        <div className="content-wrapper">
+                        <span className="project-category">{project.category}</span>
+                        <h3 className="project-title">{project.title}</h3>
+                        <div className="project-meta">
+                            <div className="meta-item">
+                            <Icon name="calendar" />
+                            <span>{project.year}</span>
+                            </div>
+                            <div className="meta-item">
+                            <Icon name="client" />
+                            <span>{project.client}</span>
+                            </div>
+                        </div>
+                        <p className="project-excerpt">{project.description}</p>
+                        <div className="tech-stack">
+                            {project.technologies.map((tech, i) => (
+                            <span key={i} className="tech-pill">{tech}</span>
+                            ))}
+                        </div>
+                        </div>
+                        <a href={project.link} className="project-cta">
+                        <span>Case Study</span>
+                        <Icon name="arrow-right" />
+                        </a>
+                    </div>
+                    </div>
                 </div>
-              </div>
+                ))}
             </div>
-          ))}
-        </div>
-      </section>
+        </section>
 
       {/* Case Studies */}
       <section id="cases" className="portfolio-section dark-bg">
