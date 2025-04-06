@@ -152,11 +152,10 @@ const HomePage = () => {
         <h2 className="h2 mb-8">Community Creations</h2>
         <div className="social-proof-grid gap-6">
           <div className="business-card md:col-span-2 p-6">
-          <GlowingTicker /> 
+            <YouTubeAntiquePlayer1/>
           </div>
           <div className="business-card p-6">
-          <YouTubeAntiquePlayer1/>
-
+            <GlowingTicker /> 
           </div>
         </div>
       </div>

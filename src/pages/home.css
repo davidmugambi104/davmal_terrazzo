@@ -5,7 +5,7 @@
 :root {
   --primary-color: #1A2A4F;       /* Navy blue - professionalism */
   --secondary-color: #2A75B3;     /* Trustworthy medium blue */
-  --accent-color: #c2e6e4;        /* Sophisticated teal accent */
+  --accent-color: #ceebe9a2;        /* Sophisticated teal accent */
   --neutral-dark: #2B2D42;        /* Dark slate contrast */
   --neutral-light: #F8F9FF;       /* Crisp light background */
   --text-dark: #0A1220;           /* Deep navy text */
@@ -16,7 +16,7 @@
 [data-theme="dark"] {
   --primary-color: #E8F1F5;       /* Ice blue */
   --secondary-color: #4A90E2;     /* Azure blue */
-  --accent-color: #a3d4d4;        /* Vibrant cyan */
+  --accent-color: #5BC0BE;        /* Vibrant cyan */
   --neutral-dark: #0A1220;        /* Deep navy */
   --neutral-light: #1A2A4F;       /* Medium navy */
   --text-dark: #F8F9FF;           /* White text */
@@ -87,7 +87,7 @@
 
 /* Cards */
 .business-card {
-  background: var( --accent-color);
+  background: var(--neutral-light);
   border: 1px solid var(--primary-color);
   box-shadow: 0 10px 30px rgba(26, 42, 79, 0.05);
   transition: var(--transition-base);
@@ -121,7 +121,7 @@
 .social-proof-grid {
   display: flex;
   gap: 2rem;
-  margin: 2.5rem 0;
+  margin: 2rem 0;
   flex-wrap: wrap;
   justify-content: space-between;
 }
