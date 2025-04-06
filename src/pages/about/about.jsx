@@ -3,6 +3,7 @@ import './AboutPage.css'; // Create this CSS file for styling
 import Navbar from '../Navbar';
 import Footer from '../footer.jsx';
 import '../gallery.css'
+import { FaCertificate, FaShieldAlt, FaLeaf } from 'react-icons/fa';
 
 import terrazzo1 from '../images/terrazzo1.jpg';
 import terrazzo2 from '../images/terrazzo2.jpg';
@@ -132,20 +133,22 @@ export const AboutUs = () => {
             </div>
         </div>
 
-        <div className="quality-badges">
-            <div className="badge">
-            <img src="/icons/iso-certified.png" alt="ISO Certified" />
-            <span>Certified Materials</span>
+
+            <div className="quality-badges">
+              <div className="badge">
+                <FaCertificate className="badge-icon" style={{ color: '#2ecc71' }} />
+                <span>Certified Materials</span>
+              </div>
+              <div className="badge">
+                <FaShieldAlt className="badge-icon" style={{ color: '#3498db' }} />
+                <span>10-Year Installation Warranty</span>
+              </div>
+              <div className="badge">
+                <FaLeaf className="badge-icon" style={{ color: '#27ae60' }} />
+                <span>Low-VOC Compounds</span>
+              </div>
             </div>
-            <div className="badge">
-            <img src="/icons/warranty.png" alt="5 Year Warranty" />
-            <span>10-Year Installation Warranty</span>
-            </div>
-            <div className="badge">
-            <img src="/icons/eco-friendly.png" alt="Eco Friendly" />
-            <span>Low-VOC Compounds</span>
-            </div>
-        </div>
+
         </section>
 
       {/* Persuasive CTA */}
