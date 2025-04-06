@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import './contact.css';
 import Navbar from '../Navbar';
 import Footer from '../footer.jsx';
