@@ -110,7 +110,7 @@ const HomePage = () => {
             <div className="business-card p-6">
               <YouTubeAntiquePlayer/>
             </div>
-            <div className="business-card md:col-span-2 p-6">
+            <div className="business-card p-6">
               <ReviewAggregator />
             </div>
           </>
@@ -151,7 +151,7 @@ const HomePage = () => {
       <div className="max-w-7xl mx-auto">
         <h2 className="h2 mb-8">Community Creations</h2>
         <div className="social-proof-grid gap-6">
-          <div className="business-card md:col-span-2 p-6">
+          <div className="business-card p-6">
             <YouTubeAntiquePlayer1/>
           </div>
           <div className="business-card p-6">
