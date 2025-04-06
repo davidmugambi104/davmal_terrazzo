@@ -7,18 +7,18 @@ export const Footer = () => {
       <h3 style={styles.heading}>Follow Us On Social Media</h3>
       
       <div style={styles.socialContainer}>
-        <a 
-          href="https://wa.me/yournumber" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          style={styles.socialLink}
-          aria-label="WhatsApp"
-        >
-          <FaWhatsapp style={styles.icon} />
-        </a>
+      <a 
+      href="https://wa.me/+254729159585?text=Hello%2C%20I%20need%20terrazzo%20%5Binstallation%5D%20or%20%5Bmaterials%5D"
+      target="_blank" 
+      rel="noopener noreferrer" 
+      style={styles.socialLink}
+      aria-label="WhatsApp"
+    >
+  <FaWhatsapp style={styles.icon} />
+</a>
         
         <a
-          href="https://www.facebook.com/yourpage"
+          href="https://www.facebook.com/profile.php?id=61568477566243"
           target="_blank"
           rel="noopener noreferrer"
           style={styles.socialLink}
