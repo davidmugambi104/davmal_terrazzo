@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import PatternGenerator from '../pages/products/custom-design-lab/PatternGenerator';
 import RealTimeRender from '../pages/products/custom-design-lab/RealTimeRender';
 import YouTubeAntiquePlayer from './VideoPopup.jsx';
+import YouTubeAntiquePlayer1 from './youtube2.jsx';
 import ReviewAggregator from '../components/layout/SocialMediaSynergy/ReviewAggregator';
 import TypeEffect from '../components/layout/SocialMediaSynergy/TypeEffect.jsx';
 import Navbar from './Navbar';
@@ -150,7 +151,7 @@ const HomePage = () => {
         <h2 className="h2 mb-8">Community Creations</h2>
         <div className="social-proof-grid gap-6">
           <div className="business-card md:col-span-2 p-6">
-            <YouTubeAntiquePlayer/>
+            <YouTubeAntiquePlayer1/>
           </div>
           <div className="business-card p-6">
             <h3 className="h3 mb-4">Featured Projects</h3>

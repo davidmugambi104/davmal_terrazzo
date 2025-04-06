@@ -1,13 +1,13 @@
 import { useState, useRef } from 'react';
 
-import backgroundImage from './images/terrazzo19.jpg';
-const YouTubeAntiquePlayer = () => {
+import backgroundImage from './images/terrazzo18.jpg';
+const YouTubeAntiquePlayer1 = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const iframeRef = useRef(null);
 
   // Extracted correct video ID from YouTube Shorts URL
-  const videoId = "jeHWvQx3JC8";  
+  const videoId = "2UI-X8Ufzm0";
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
   const handleVideoOpen = () => {
@@ -181,4 +181,4 @@ const YouTubeAntiquePlayer = () => {
   );
 };
 
-export default YouTubeAntiquePlayer;
+export default YouTubeAntiquePlayer1;
