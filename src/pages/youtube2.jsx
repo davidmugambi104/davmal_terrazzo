@@ -119,8 +119,9 @@ const YouTubeAntiquePlayer1 = () => {
           backgroundColor: 'rgba(0, 0, 0, 0.9)',
           display: 'flex',
           justifyContent: 'center',
+          flexDirection: 'column',
           alignItems: 'center',
-          zIndex: 1000,
+          zIndex: 1,
         }} onClick={handleClose}>
           <div style={{
             width: '80%',
@@ -130,7 +131,8 @@ const YouTubeAntiquePlayer1 = () => {
             borderRadius: '8px',
             overflow: 'hidden',
             background: '#5a3d2b',
-            boxShadow: '0 0 40px rgba(0,0,0,0.5)'
+            boxShadow: '0 0 40px rgba(0,0,0,0.5)',
+            marginTop: '2rem'
           }}>
             <div style={{
               position: 'relative',
