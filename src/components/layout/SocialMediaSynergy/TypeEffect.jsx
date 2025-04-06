@@ -9,7 +9,7 @@ const TypeEffect = () => {
   const indexRef = useRef(0);
   const navigate = useNavigate();
   
-  const message = "Tired of cracked tiles and the fading reliability of red oxide? Upgrade to durable, stylish, and long-lasting terrazzo floors! Our terrazzo flooring is not only beautiful but also easy to maintain, making it the perfect choice for your home or business. Say goodbye to constant repairs and hello to a stunning, low-maintenance solution.";
+  const message = "Tired of cracked tiles and the fading reliability of red oxide? Upgrade to durable, stylish, and long-lasting terrazzo floors! Our terrazzo flooring is not only beautiful but also easy to maintain, making it the perfect choice for your home or business. Say goodbye to constant repairs and hello to a stunning, low-maintenance solution.            call or whatsapp us +254 729159585";
 
   useEffect(() => {
     let timeoutId;
@@ -58,14 +58,14 @@ const TypeEffect = () => {
         {displayText}
         <span className="cursor" style={{ opacity: cursorVisible ? 1 : 0 }}>|</span>
       </div>
-      {showButton && (
+      {/* {showButton && (
         <button 
           className="contact-button" 
           onClick={handleContactClick}
         >
           Contact Us
-        </button>
-      )}
+        </button> */}
+      {/* )} */}
     </div>
   );
 };
