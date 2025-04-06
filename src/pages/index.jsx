@@ -14,6 +14,7 @@ import ResponsiveAnimatedHeading from './AnimatedHead.jsx';
 import AntiquePhotoFrame from './frame.jsx';
 import Footer  from './footer.jsx';
 import './home.css';
+import GlowingTicker from './newsHeadlines.jsx';
 
 const HomePageErrorFallback = ({ error, resetErrorBoundary }) => (
   <div role="alert" className="p-8 bg-red-100 text-red-700 rounded-xl">
@@ -151,11 +152,11 @@ const HomePage = () => {
         <h2 className="h2 mb-8">Community Creations</h2>
         <div className="social-proof-grid gap-6">
           <div className="business-card md:col-span-2 p-6">
-            <YouTubeAntiquePlayer1/>
+          <GlowingTicker /> 
           </div>
           <div className="business-card p-6">
-            <h3 className="h3 mb-4">Featured Projects</h3>
-            <TrendingProjectsCarousel />
+          <YouTubeAntiquePlayer1/>
+
           </div>
         </div>
       </div>
@@ -173,8 +174,9 @@ const HomePage = () => {
           <>
             {renderRecommendations()}
             {renderDesignSection()}
-            {renderCommunitySection()}
             {renderSocialProof()}
+            {renderCommunitySection()}
+
             
 
           </>
@@ -187,16 +189,5 @@ const HomePage = () => {
 };
 
 // Restored carousel component
-const TrendingProjectsCarousel = () => (
-  <div className="trend-carousel">
-    {[1, 2, 3].map(id => (
-      <div key={id} className="trend-item">
-        <div className="h-32 bg-gray-100/50 dark:bg-gray-800/50 rounded-lg animate-pulse">
-          <span className="sr-only">Loading project...</span>
-        </div>
-      </div>
-    ))}
-  </div>
-);
 
 export default HomePage;

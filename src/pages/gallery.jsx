@@ -21,7 +21,7 @@ const TerrazzoGallery = () => {
       <Navbar />
       <div className="gallery-header">
         <h1 className="gallery-title">Premium Terrazzo Designs</h1>
-        <p className="gallery-subtitle">Experience Timeless Elegance in Every Pattern</p>
+        <p className="gallery-subtitle">Experience Timeless Elegance In Every Pattern</p>
       </div>
       
       <div className="image-grid">

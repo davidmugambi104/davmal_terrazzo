@@ -43,7 +43,7 @@ function Navbar() {
           <NavLink to="/" className="nav-link">Home</NavLink>
           <NavLink to="/about" className="nav-link">About</NavLink>
           <NavLink to="/portfolio" className="nav-link">Portfolio</NavLink>
-          <NavLink to="/photos" className="nav-link">gallery</NavLink>
+          <NavLink to="/photos" className="nav-link">Gallery</NavLink>
           <NavLink to="/contact" className="nav-link">Contact</NavLink>
         </nav>
 

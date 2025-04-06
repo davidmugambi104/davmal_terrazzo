@@ -5,7 +5,7 @@
 :root {
   --primary-color: #1A2A4F;       /* Navy blue - professionalism */
   --secondary-color: #2A75B3;     /* Trustworthy medium blue */
-  --accent-color: #3AAFA9;        /* Sophisticated teal accent */
+  --accent-color: #c2e6e4;        /* Sophisticated teal accent */
   --neutral-dark: #2B2D42;        /* Dark slate contrast */
   --neutral-light: #F8F9FF;       /* Crisp light background */
   --text-dark: #0A1220;           /* Deep navy text */
@@ -16,7 +16,7 @@
 [data-theme="dark"] {
   --primary-color: #E8F1F5;       /* Ice blue */
   --secondary-color: #4A90E2;     /* Azure blue */
-  --accent-color: #5BC0BE;        /* Vibrant cyan */
+  --accent-color: #a3d4d4;        /* Vibrant cyan */
   --neutral-dark: #0A1220;        /* Deep navy */
   --neutral-light: #1A2A4F;       /* Medium navy */
   --text-dark: #F8F9FF;           /* White text */
@@ -87,7 +87,7 @@
 
 /* Cards */
 .business-card {
-  background: var(--neutral-light);
+  background: var( --accent-color);
   border: 1px solid var(--primary-color);
   box-shadow: 0 10px 30px rgba(26, 42, 79, 0.05);
   transition: var(--transition-base);
@@ -119,7 +119,28 @@
 
 /* Social Proof Grid */
 .social-proof-grid {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  gap: 2rem;
+  margin: 2.5rem 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.social-proof-grid .business-card {
+  flex: 1 1 300px;
+  min-width: 300px;
+}
+.social-proof-grid .business-card.md\:col-span-2 {
+  flex: 2 2 600px;
+}
+@media (max-width: 768px) {
+  .social-proof-grid {
+    flex-direction: column;
+  }
+  
+  .social-proof-grid .business-card {
+    flex: 1 1 auto;
+    min-width: 100%;
+  }
 }
 
 /* Animations */
