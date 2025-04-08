@@ -110,7 +110,7 @@ const HomePage = () => {
             <div className="card-1">
               <YouTubeAntiquePlayer/>
             </div>
-            <div className="business-card md:col-span-2 p-6">
+            <div className="card-1">
             <YouTubeAntiquePlayer1/>
 
             </div>
@@ -149,7 +149,7 @@ const HomePage = () => {
   // Community section (restored with placeholder content)
   const renderCommunitySection = () => (
     <section className="py-16 px-4">
-      {/* <div className="max-w-7xl mx-auto"> */}
+      <div className="max-w-7xl mx-auto">
         <h2 className="h2 mb-8">Community Creations</h2>
           <div className="card-1">
           <ReviewAggregator />
@@ -157,7 +157,7 @@ const HomePage = () => {
           <div className="business-card md:col-span-2 p-6">
             <GlowingTicker /> 
           </div>
-        {/* </div> */}
+        </div>
     </section>
   );
 
