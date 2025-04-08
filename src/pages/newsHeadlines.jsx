@@ -103,7 +103,9 @@ const styles = `
     45deg,
     #3AAFA9,
     #2A75B3,
-    #7f00ff
+    #7f00ff,
+    #ff0080,
+    #ff8c00
   );
   animation: rotate-back 10s linear infinite;
 }
@@ -112,7 +114,7 @@ const styles = `
   content: '';
   position: absolute;
   inset: 2px;
-  background: #1a1a1a;
+  background:rgb(56, 53, 53);
   border-radius: 10px;
 }
 

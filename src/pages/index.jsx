@@ -15,6 +15,8 @@ import AntiquePhotoFrame from './frame.jsx';
 import Footer  from './footer.jsx';
 import './home.css';
 import GlowingTicker from './newsHeadlines.jsx';
+import YouTubeAntiquePlayer2 from './youtube3.jsx';
+import YouTubeAntiquePlayer3 from './youtube4.jsx';
 
 const HomePageErrorFallback = ({ error, resetErrorBoundary }) => (
   <div role="alert" className="p-8 bg-red-100 text-red-700 rounded-xl">
@@ -114,6 +116,14 @@ const HomePage = () => {
             <YouTubeAntiquePlayer1/>
 
             </div>
+            <div className="card-1">
+            <YouTubeAntiquePlayer2/>
+
+            </div>
+            <div className="card-1">
+            <YouTubeAntiquePlayer3/>
+
+            </div>
           </>
         )}
       {/* </div> */}
@@ -151,9 +161,9 @@ const HomePage = () => {
     <section className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <h2 className="h2 mb-8">Community Creations</h2>
-          <div className="card-1">
+          {/* <div className="card-1">
           <ReviewAggregator />
-          </div>
+          </div> */}
           <div className="business-card md:col-span-2 p-6">
             <GlowingTicker /> 
           </div>
