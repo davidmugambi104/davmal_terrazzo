@@ -160,7 +160,7 @@ const HomePage = () => {
   const renderCommunitySection = () => (
     <section className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
-        <h2 className="h2 mb-8">Community Creations</h2>
+        {/* <h2 className="h2 mb-8">Community Creations</h2> */}
           {/* <div className="card-1">
           <ReviewAggregator />
           </div> */}
