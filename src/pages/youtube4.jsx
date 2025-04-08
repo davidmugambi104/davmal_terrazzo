@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import "./YouTubeAntiquePlayer.css";
-import backgroundImage from './images/terrazzo54.jpg';
+import backgroundImage from './images/terrazzo66.jpg';
 
 const YouTubeAntiquePlayer3 = () => {
   const [isOpen, setIsOpen] = useState(false);
