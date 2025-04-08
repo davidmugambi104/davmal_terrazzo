@@ -15,7 +15,7 @@ const WhatsAppForm = () => {
   };
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit}>
+    <form className="contact-form1" onSubmit={handleSubmit}>
       <input 
         type="email" 
         placeholder="Your email" 
