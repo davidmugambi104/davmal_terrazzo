@@ -4,6 +4,7 @@ import './portfolio.css';
 import Navbar from '../Navbar.jsx';
 import Footer from '../footer.jsx';
 import terrazzo53 from '../images/terrazzo69.jpg';
+import WhatsAppForm from '../porfolio/whatsapp.jsx';
 
 export const BusinessPortfolio = () => {
   const [activeSection, setActiveSection] = useState('about');
@@ -176,11 +177,7 @@ export const BusinessPortfolio = () => {
       <footer className="portfolio-footer">
         <div className="contact-section">
           <h3>Start Your Project</h3>
-          <form className="contact-form">
-            <input type="email" placeholder="Your email" />
-            <textarea placeholder="Project details"></textarea>
-            <button type="submit">Request Consultation</button>
-          </form>
+          <WhatsAppForm />
         </div>
       </footer>
       {/* Testimonials */}
