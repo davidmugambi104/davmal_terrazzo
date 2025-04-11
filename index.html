@@ -35,42 +35,6 @@
       background: #fff;
     }
 
-    :root {
-            --color-2: #4ECDC4;
-            --color-3: #45B7D1;
-            --color-4: #9B59B6;
-        }
-
-        body {
-            margin: 0;
-            overflow: hidden;
-            height: 100vh;
-            animation: gradientFlow 20s ease infinite;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-
-        }
-
-        @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-    
-
     #root {
       position: relative;
       z-index: 1;
