@@ -11,7 +11,7 @@
   top: 0;
   z-index: 1000;
   padding: 1rem 2rem;
-  background: var(--primary-gradient);
+  background: transparent;
   background-size: 400% 400%;
   animation: gradientFlow 25s ease infinite;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
