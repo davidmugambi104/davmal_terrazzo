@@ -14,7 +14,8 @@ import ContactForm from './pages/contact/contactUs';
 
 const App = () => {
     return (
-        <Router>
+
+        <Router basename={import.meta.env.BASE_URL}>
             <Routes>
                 <Route exact path="/" element={<Index />} />
                 <Route path="/about" element={<AboutUs />} />
