@@ -16,7 +16,7 @@ const ContactForm = () => {
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(null);
 
-  // WhatsApp configuration (replace with your number)
+
   const whatsappNumber = '+254729159585'; // International format
 
   useEffect(() => {
