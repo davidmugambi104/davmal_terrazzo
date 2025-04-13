@@ -6,8 +6,8 @@ import PatternGenerator from './pages/products/custom-design-lab/PatternGenerato
 import RealTimeRender from './pages/products/custom-design-lab/RealTimeRender';
 import TerrazzoGallery from './pages/gallery';
 import { AboutUs } from './pages/about/about';
-import ContactPage from './pages/contact/contactUs';
 import BusinessPortfolio from './pages/porfolio/design-portfolio';
+import ContactForm from './pages/contact/contactUs';
 
 
 
@@ -18,7 +18,7 @@ const App = () => {
             <Routes>
                 <Route exact path="/" element={<Index />} />
                 <Route path="/about" element={<AboutUs />} />
-                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/contact" element={<ContactForm />} />
                 <Route path="/portfolio" element={<BusinessPortfolio />} />
                 <Route path="/photos" element={<TerrazzoGallery />} />
 
